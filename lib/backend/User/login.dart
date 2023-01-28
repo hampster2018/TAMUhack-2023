@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../globals/user.dart' as user;
 
-import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class GetUserID extends StatelessWidget {

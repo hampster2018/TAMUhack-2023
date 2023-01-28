@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamuhack/screens/home/screen.dart';
 
-import 'globals/app_colors.dart';
 import 'screens/login/screen.dart';
 
 void main() {
