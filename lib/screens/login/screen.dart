@@ -10,16 +10,16 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.blue,
       body: Padding(
-        padding: const EdgeInsets.only(left: 45),
+        padding: const EdgeInsets.only(top: 50),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          //mainAxisAlignment: MainAxisAlignment.center,
+          //crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             //const SizedBox(width: 120, height: 120, child:Image(image: AssetImage('assets/graphics/logo.png'))),
             const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
             Container(
               width: 325,
-              height: 135,
+              height: 100,
               decoration: BoxDecoration(
                   color: const Color.fromRGBO(199, 208, 215, 1.0),
                   border: Border.all(
@@ -35,7 +35,7 @@ class LoginPage extends StatelessWidget {
                   const Text(
                     'AppName TBD',
                     style: TextStyle(
-                        color: Color.fromRGBO(182, 31, 35, 1.0), fontSize: 30),
+                        color: Color.fromRGBO(182, 31, 35, 1.0), fontSize: 20),
                   ),
                   Container(
                     height: 20,
@@ -47,14 +47,25 @@ class LoginPage extends StatelessWidget {
 
             Container(
                 width: 325,
-                height: 370,
+                height: 220,
                 decoration: BoxDecoration(
                     color: const Color.fromRGBO(199, 208, 215, 1.0),
                     border: Border.all(
                       color: const Color.fromRGBO(199, 208, 215, 1.0),
                     ),
                     borderRadius: const BorderRadius.all(Radius.circular(20))),
-                child: const LoginInfo()),
+                child: const CompanyLoginInfo()),
+            Container(height: 20),
+            Container(
+                width: 325,
+                height: 220,
+                decoration: BoxDecoration(
+                    color: const Color.fromRGBO(199, 208, 215, 1.0),
+                    border: Border.all(
+                      color: const Color.fromRGBO(199, 208, 215, 1.0),
+                    ),
+                    borderRadius: const BorderRadius.all(Radius.circular(20))),
+                child: const IndividualLoginInfo()),
           ],
         ),
       ),
@@ -62,14 +73,14 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-class LoginInfo extends StatefulWidget {
-  const LoginInfo({Key? key}) : super(key: key);
+class CompanyLoginInfo extends StatefulWidget {
+  const CompanyLoginInfo({Key? key}) : super(key: key);
 
   @override
-  State<LoginInfo> createState() => _LoginInfoState();
+  State<CompanyLoginInfo> createState() => _CompanyLoginInfoState();
 }
 
-class _LoginInfoState extends State<LoginInfo> {
+class _CompanyLoginInfoState extends State<CompanyLoginInfo> {
   //final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
 
@@ -85,16 +96,16 @@ class _LoginInfoState extends State<LoginInfo> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text(
-              'Login',
+              'Company Login',
               style: TextStyle(
-                  color: Color.fromRGBO(182, 31, 35, 1.0), fontSize: 30),
+                  color: Color.fromRGBO(182, 31, 35, 1.0), fontSize: 20),
             ),
             Container(
               height: 25,
             ),
             SizedBox(
               width: 300,
-              height: 45,
+              height: 35,
               child: CupertinoTextField(
                 controller: controllerUserSignIn,
                 placeholder: 'Username',
@@ -115,7 +126,7 @@ class _LoginInfoState extends State<LoginInfo> {
             ),
             SizedBox(
               width: 300,
-              height: 45,
+              height: 35,
               child: CupertinoTextField(
                 controller: controllerPassSignIn,
                 placeholder: 'Password',
@@ -132,7 +143,7 @@ class _LoginInfoState extends State<LoginInfo> {
               ),
             ),
             Container(
-              height: 30,
+              height: 20,
             ),
             SizedBox(
               width: 250,
@@ -151,25 +162,98 @@ class _LoginInfoState extends State<LoginInfo> {
                     }*/
                   }),
             ),
+          ]),
+    );
+  }
+}
+
+class IndividualLoginInfo extends StatefulWidget {
+  const IndividualLoginInfo({Key? key}) : super(key: key);
+
+  @override
+  State<IndividualLoginInfo> createState() => _IndividualLoginInfoState();
+}
+
+class _IndividualLoginInfoState extends State<IndividualLoginInfo> {
+  //final AuthService _auth = AuthService();
+  final _formKey = GlobalKey<FormState>();
+
+  final controllerUserSignIn = TextEditingController();
+  final controllerPassSignIn = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Text(
+              'Individual Login',
+              style: TextStyle(
+                  color: Color.fromRGBO(182, 31, 35, 1.0), fontSize: 20),
+            ),
             Container(
               height: 25,
+            ),
+            SizedBox(
+              width: 300,
+              height: 35,
+              child: CupertinoTextField(
+                controller: controllerUserSignIn,
+                placeholder: 'Username',
+                placeholderStyle:
+                    TextStyle(color: Theme.of(context).colorScheme.onSecondary),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Colors.white,
+                    ),
+                    borderRadius: const BorderRadius.all(Radius.circular(10))),
+                style: const TextStyle(color: Colors.black),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Container(
+              height: 15,
+            ),
+            SizedBox(
+              width: 300,
+              height: 35,
+              child: CupertinoTextField(
+                controller: controllerPassSignIn,
+                placeholder: 'Password',
+                placeholderStyle:
+                    TextStyle(color: Theme.of(context).colorScheme.onSecondary),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Colors.white,
+                    ),
+                    borderRadius: const BorderRadius.all(Radius.circular(10))),
+                style: const TextStyle(color: Colors.black),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Container(
+              height: 20,
             ),
             SizedBox(
               width: 250,
               child: CupertinoButton(
                   color: Theme.of(context).colorScheme.background,
-                  child: const Text(
-                    "Create Account",
-                    style: TextStyle(color: Colors.white),
-                    textAlign: TextAlign.center,
-                  ),
+                  child: const Text("Sign In",
+                      style: TextStyle(color: Colors.white)),
                   onPressed: () {
-                    Navigator.of(context).pushReplacementNamed('/Home');
                     //async {
-                    /*print(controllerPassSignIn.text + " - " + controllerUserSignIn.text);
-                    currentUserSelf = await _auth.registerWithEmailAndPassword(controllerUserSignIn.text, controllerPassSignIn.text);
-                    Navigator.of(context).pushReplacementNamed('/Main');
-                    */
+                    Navigator.of(context).pushReplacementNamed('/Home');
+                    /*dynamic result = await _auth.signInWithEmailAndPassword(controllerUserSignIn.text, controllerPassSignIn.text);
+                    if(result == null){
+                      print("error: user not found");
+                    } else {
+                      Navigator.of(context).pushReplacementNamed('/Main');
+                    }*/
                   }),
             ),
           ]),
