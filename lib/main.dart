@@ -4,6 +4,7 @@ import 'package:tamuhack/screens/home/screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
+import './screens/find_a_friend/screen.dart';
 import 'screens/login/screen.dart';
 
 void main() async {
@@ -36,12 +37,13 @@ class MyApp extends StatelessWidget {
             ),
         //home: const MyHomePage(title: 'Flutter Demo Home Page'),
         // Starts on the Login Screen
-        initialRoute: "/",
+        initialRoute: "/Friend",
         // List of routes for our User to use
         routes: {
           // Login Route for the User
           "/": (context) => const LoginPage(),
           "/Home": (context) => const HomePage(),
+          '/Friend': (context) => const FindAFriend(),
         });
   }
 }
