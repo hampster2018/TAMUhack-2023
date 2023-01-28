@@ -9,15 +9,15 @@ class GiveRide extends StatefulWidget {
 }
 
 class _GiveRideState extends State<GiveRide> {
-  var items = [
-    'Item 1',
-    'Item 2',
-    'Item 3',
-    'Item 4',
-    'Item 5',
+  var days = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
   ];
 
-  String dropdownvalue = 'Item 1';
+  String dropdownvalue = 'Monday';
 
   final destination = TextEditingController();
 
@@ -51,20 +51,50 @@ class _GiveRideState extends State<GiveRide> {
                     padding: EdgeInsets.symmetric(vertical: 10),
                   ),
                   SizedBox(
-                    width: sWidth / 1.3,
+                    width: sWidth / 1.2,
+                    child: const TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Destination',
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                  ),
+                  SizedBox(
+                    width: sWidth / 1.2,
                     child: DropdownButton(
                       isExpanded: true,
                       value: dropdownvalue,
-                      items: items.map((String items) {
-                        return DropdownMenuItem(
-                          value: items,
-                          child: Text(items),
-                        );
-                      }).toList(),
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          dropdownvalue = newValue!;
-                        });
+                      items: const [
+                        DropdownMenuItem<String>(
+                          child: Text('Monday'),
+                          value: 'Monday',
+                        ),
+                        DropdownMenuItem<String>(
+                          child: Text('Tuesday'),
+                          value: 'Tuesday',
+                        ),
+                        DropdownMenuItem<String>(
+                          child: Text('Wednesday'),
+                          value: 'Wednesday',
+                        ),
+                        DropdownMenuItem<String>(
+                          child: Text('Thursday'),
+                          value: 'Thursday',
+                        ),
+                        DropdownMenuItem<String>(
+                          child: Text('Friday'),
+                          value: 'Friday',
+                        ),
+                      ],
+                      onChanged: (String? selectedValue) {
+                        if (selectedValue is String) {
+                          setState(() {
+                            dropdownvalue = selectedValue;
+                          });
+                        }
                       },
                     ),
                   ),
