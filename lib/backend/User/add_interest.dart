@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../globals/user.dart' as user;
+import 'dart:developer';
 
 // Import the firebase_core and cloud_firestore plugin
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -22,8 +23,8 @@ class AddInterest extends StatelessWidget {
             {'interest': user.interest},
             SetOptions(merge: true),
           )
-          .then((value) => print("$interest added"))
-          .catchError((error) => print("Failed to add user: $error"));
+          .then((value) => log("$interest added"))
+          .catchError((error) => log("Failed to add user: $error"));
     }
 
     return TextButton(
