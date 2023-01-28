@@ -19,7 +19,8 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.only(top: 50),
               child: Container(
                 height: 100,
-                child: Text("Hello Shamitha", style: TextStyle(fontSize: 40)),
+                child: const Text("Hello Shamitha",
+                    style: TextStyle(fontSize: 40)),
               ),
             ),
             Padding(
@@ -32,29 +33,29 @@ class _HomePageState extends State<HomePage> {
                     height: 100,
                     child: CupertinoButton(
                         color: AppColors.steelblue,
-                        child: Text('Hotspots'),
+                        child: const Text('Hotspots'),
                         onPressed: () {
                           //Navigator.of(context).pushReplacementNamed('/Hotspots');
                         }),
                   ),
-                  SizedBox(width: 30),
+                  const SizedBox(width: 30),
                   SizedBox(
                     width: 100,
                     height: 100,
                     child: CupertinoButton(
                         color: AppColors.steelblue,
-                        child: Text('Rideshare'),
+                        child: const Text('Rideshare'),
                         onPressed: () {
                           //Navigator.of(context).pushReplacementNamed('/Rideshare');
                         }),
                   ),
-                  SizedBox(width: 30),
+                  const SizedBox(width: 30),
                   SizedBox(
                     width: 100,
                     height: 100,
                     child: CupertinoButton(
                         color: AppColors.steelblue,
-                        child: Text('Find a Friend'),
+                        child: const Text('Find a Friend'),
                         onPressed: () {
                           //Navigator.of(context).pushReplacementNamed('/FindFriend');
                         }),
@@ -67,13 +68,13 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.only(top: 50),
               child: Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
                     color: AppColors.steelblue,
                   ),
                   //color: AppColors.steelblue,
                   width: 355,
                   height: 400,
-                  child: Image(image: AssetImage('images/map.png'))),
+                  child: const Image(image: AssetImage('images/map.png'))),
             ),
           ],
         ),
@@ -89,8 +90,8 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () {
                         Navigator.of(context).pushReplacementNamed('/Home');
                       },
-                      icon: Icon(Icons.home))),
-              SizedBox(width: 5),
+                      icon: const Icon(Icons.home))),
+              const SizedBox(width: 5),
               SizedBox(
                   width: 50,
                   height: 50,
@@ -99,8 +100,8 @@ class _HomePageState extends State<HomePage> {
                         Navigator.of(context).pushReplacementNamed('/');
                         //Navigator.of(context).pushReplacementNamed('/Rideshare');
                       },
-                      icon: Icon(Icons.car_crash))),
-              SizedBox(width: 5),
+                      icon: const Icon(Icons.car_crash))),
+              const SizedBox(width: 5),
               SizedBox(
                   width: 50,
                   height: 50,
@@ -108,8 +109,8 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () {
                         //Navigator.of(context).pushReplacementNamed('/FindFriend');
                       },
-                      icon: Icon(Icons.people))),
-              SizedBox(width: 5),
+                      icon: const Icon(Icons.people))),
+              const SizedBox(width: 5),
               SizedBox(
                   width: 50,
                   height: 50,
@@ -117,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () {
                         //Navigator.of(context).pushReplacementNamed('/Profile');
                       },
-                      icon: Icon(Icons.person))),
+                      icon: const Icon(Icons.person))),
             ],
           ),
         ));

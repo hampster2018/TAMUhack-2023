@@ -2,7 +2,7 @@ import '../../globals/user.dart' as user;
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-Future<List> login(String email, String password) async {
+Future<List> companyLogin(String email, String password) async {
   CollectionReference users = FirebaseFirestore.instance.collection('users');
 
   QuerySnapshot snapshot = await users.where('email', isEqualTo: email).get();
@@ -22,7 +22,7 @@ Future<List> login(String email, String password) async {
     user.first = data['firstName'];
     user.last = data['lastName'];
     user.email = data['email'];
-    user.company = "None";
+    user.company = data['company'];
     user.interest = data['interest'] ?? [];
     user.friends = data['friends'] ?? [];
     return [true, "Success!"];
