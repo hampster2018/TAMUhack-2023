@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamuhack/screens/home/screen.dart';
 
 import 'globals/app_colors.dart';
 import 'screens/login/screen.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         routes: {
           // Login Route for the User
           "/": (context) => const LoginPage(),
-          //"/Main": (context) => const MainPage(),
+          "/Home": (context) => const HomePage(),
         });
   }
 }
