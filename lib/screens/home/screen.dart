@@ -96,6 +96,7 @@ class _HomePageState extends State<HomePage> {
                   height: 50,
                   child: IconButton(
                       onPressed: () {
+                        Navigator.of(context).pushReplacementNamed('/');
                         //Navigator.of(context).pushReplacementNamed('/Rideshare');
                       },
                       icon: Icon(Icons.car_crash))),
