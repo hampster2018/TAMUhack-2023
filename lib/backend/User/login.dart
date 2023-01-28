@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../globals/user.dart' as user;
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -30,7 +31,15 @@ class GetUserID extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.done) {
           Map<String, dynamic> data = snapshot.data as Map<String, dynamic>;
           if (data['password'] == password) {
-            return const Text("Login");
+            user.isLoggedIn = true;
+            user.uid = data['uid'];
+            user.first = data['firstName'];
+            user.last = data['lastName'];
+            user.email = data['email'];
+            user.company = data['company'] ?? "None";
+            user.interest = data['interest'];
+            user.friends = data['friends'];
+            return const Text("Login successful");
           }
           return const Text("Incorrect Password");
         }
