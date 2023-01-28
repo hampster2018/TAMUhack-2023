@@ -1,5 +1,4 @@
- import 'package:flutter/cupertino.dart';
-// import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:tamuhack/globals/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +20,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 class GFG extends StatefulWidget {
   const GFG({Key? key}) : super(key: key);
 
@@ -43,82 +43,121 @@ class _GFGState extends State<GFG> {
               showSearch(
                   context: context,
                   // delegate to customize the search bar
-                  delegate: CustomSearchDelegate()
-              );
+                  delegate: CustomSearchDelegate());
             },
             icon: const Icon(Icons.search),
           )
         ],
       ),
-     // body: Column(
-        // children: <Widget>[
-        //   Container(
-        //     child: new Padding(
-        //       padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
-        //       child: Text ("row text 1."),
-        //     ),
-        //   )
-        // ],
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 100,
-                    height: 100,
-                    child: CupertinoButton(
-                        color: AppColors.steelblue,
-                        child: Text('Hotspots'),
-                        onPressed: () {
-                          //Navigator.of(context).pushReplacementNamed('/Hotspots');
-                        }),
-                  ),
-                  SizedBox(width: 30),
-                  SizedBox(
-                    width: 100,
-                    height: 100,
-                    child: CupertinoButton(
-                        color: AppColors.steelblue,
-                        child: Text('Rideshare'),
-                        onPressed: () {
-                          //Navigator.of(context).pushReplacementNamed('/Rideshare');
-                        }),
-                  ),
-                  SizedBox(width: 30),
-                  SizedBox(
-                    width: 100,
-                    height: 100,
-                    child: CupertinoButton(
-                        color: AppColors.steelblue,
-                        child: Text('Find a Friend'),
-                        onPressed: () {
-                          //Navigator.of(context).pushReplacementNamed('/FindFriend');
-                        }),
-                  ),
-                ],
-              ),
+      // body: Column(
+      // children: <Widget>[
+      //   Container(
+      //     child: new Padding(
+      //       padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
+      //       child: Text ("row text 1."),
+      //     ),
+      //   )
+      // ],
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 150,
+                  height: 150,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blueAccent,
+                        padding: EdgeInsets.all(10)
+                      ),
+
+                    child: Column(
+                      children: [
+                        Container(
+                         child: Text('Kyle Field'),
+                        ),
+                        SizedBox(height: 5),
+                        Container(
+                          child: Text('0.5 mi away', style: TextStyle(fontSize: 10),),
+                        ),
+                        SizedBox(height: 10),
+                        Container(
+                            child: Image(image: AssetImage('images/kylefield.png'))
+                        )
+                      ]
+
+
             ),
-            // add map widget here
-            Padding(
-              padding: const EdgeInsets.only(top: 50),
-              child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    color: AppColors.steelblue,
-                  ),
-                  //color: AppColors.steelblue,
-                  width: 355,
-                  height: 400,
-                  child: Image(image: AssetImage('screens/hotspots/image-87.png'))),
+                      onPressed: () {
+                        //Navigator.of(context).pushReplacementNamed('/Hotspots');
+                      }),
+                ),
+                SizedBox(width: 40),
+                SizedBox(
+                  width: 150,
+                  height: 150,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blueAccent,
+                          padding: EdgeInsets.all(10)
+                      ),
+
+                      child: Column(
+                          children: [
+                            Container(
+                              child: Text('Bonfire Memorial'),
+                            ),
+                            SizedBox(height: 5),
+                            Container(
+                              child: Text('1.2 mi away', style: TextStyle(fontSize: 10),),
+                            ),
+                            SizedBox(height: 10),
+                            Container(
+                                child: Image(image: AssetImage('images/bonfirememorial.jpg'))
+                            )
+                          ]
+
+
+                      ),
+                      onPressed: () {
+                        //Navigator.of(context).pushReplacementNamed('/Hotspots');
+                      }),
+                ),
+                //SizedBox(width: 15),
+                // SizedBox(
+                //   width: 100,
+                //   height: 100,
+                //   child: CupertinoButton(
+                //       color: AppColors.steelblue,
+                //       child: Text('Find a Friend'),
+                //       onPressed: () {
+                //         //Navigator.of(context).pushReplacementNamed('/FindFriend');
+                //       }),
+                // ),
+              ],
             ),
-          ],
-        ),
+          ),
+
+
+          // Padding(
+          //   padding: const EdgeInsets.only(top: 50),
+          //   child: Container(
+          //       decoration: BoxDecoration(
+          //         borderRadius: BorderRadius.all(Radius.circular(10)),
+          //         color: AppColors.steelblue,
+          //       ),
+          //       //color: AppColors.steelblue,
+          //       width: 355,
+          //       height: 400,
+          //       child: Image(image: AssetImage('images/kylefield.png'))),
+          // ),
+        ], //children of initial column
+      ),
 
       //  ),
-
     );
   }
 }
