@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'globals/app_colors.dart';
 import 'package:tamuhack/screens/rideshare/give_a_ride/screen.dart';
+import 'package:tamuhack/screens/rideshare/find_a_ride/screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
           // Login Route for the User
           //"/": (context) => const LoginPage(),
           "/GiveRide": (context) => const GiveRide(),
+          "/FindRide": (context) => const FindRide(),
           //"/Main": (context) => const MainPage(),
         });
   }

@@ -17,7 +17,8 @@ class _GiveRideState extends State<GiveRide> {
     'Friday',
   ];
 
-  String dropdownvalue = 'Monday';
+  String dropdownvalue = 'Choose a day';
+  String timevalue = 'Choose a time slot';
 
   final destination = TextEditingController();
 
@@ -28,12 +29,14 @@ class _GiveRideState extends State<GiveRide> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.background,
+          backgroundColor: AppColors.background,
           centerTitle: true,
           title: const Text("Give Ride"),
           leading: IconButton(
             icon: const Icon(Icons.arrow_back_sharp),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushReplacementNamed('/FindRide');
+            },
           ),
         ),
         body: Center(
@@ -69,6 +72,10 @@ class _GiveRideState extends State<GiveRide> {
                       value: dropdownvalue,
                       items: const [
                         DropdownMenuItem<String>(
+                          child: Text('Choose a day'),
+                          value: 'Choose a day',
+                        ),
+                        DropdownMenuItem<String>(
                           child: Text('Monday'),
                           value: 'Monday',
                         ),
@@ -93,6 +100,65 @@ class _GiveRideState extends State<GiveRide> {
                         if (selectedValue is String) {
                           setState(() {
                             dropdownvalue = selectedValue;
+                          });
+                        }
+                      },
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                  ),
+                  SizedBox(
+                    width: sWidth / 1.2,
+                    child: DropdownButton(
+                      isExpanded: true,
+                      value: timevalue,
+                      items: const [
+                        DropdownMenuItem<String>(
+                          child: Text('Choose a time slot'),
+                          value: 'Choose a time slot',
+                        ),
+                        DropdownMenuItem<String>(
+                          child: Text('6-7 AM'),
+                          value: 'Monday',
+                        ),
+                        DropdownMenuItem<String>(
+                          child: Text('7-8 AM'),
+                          value: 'Tuesday',
+                        ),
+                        DropdownMenuItem<String>(
+                          child: Text('8-9 AM'),
+                          value: 'Wednesday',
+                        ),
+                        DropdownMenuItem<String>(
+                          child: Text('9-10 AM'),
+                          value: 'Friday',
+                        ),
+                        DropdownMenuItem<String>(
+                          child: Text('10-11 AM'),
+                          value: 'Friday',
+                        ),
+                        DropdownMenuItem<String>(
+                          child: Text('11 AM-12 PM'),
+                          value: 'Friday',
+                        ),
+                        DropdownMenuItem<String>(
+                          child: Text('12-1 PM'),
+                          value: 'Friday',
+                        ),
+                        DropdownMenuItem<String>(
+                          child: Text('1-2 PM'),
+                          value: 'Friday',
+                        ),
+                        DropdownMenuItem<String>(
+                          child: Text('2-3 PM'),
+                          value: 'Thursday',
+                        ),
+                      ],
+                      onChanged: (String? selectedValue) {
+                        if (selectedValue is String) {
+                          setState(() {
+                            timevalue = selectedValue;
                           });
                         }
                       },
