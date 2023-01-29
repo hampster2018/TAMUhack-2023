@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AddUser extends StatelessWidget {
@@ -26,8 +26,8 @@ class AddUser extends StatelessWidget {
             'company': company,
             'password': password
           })
-          .then((value) => print("User Added"))
-          .catchError((error) => print("Failed to add user: $error"));
+          .then((value) => log("User Added"))
+          .catchError((error) => log("Failed to add user: $error"));
     }
 
     return TextButton(

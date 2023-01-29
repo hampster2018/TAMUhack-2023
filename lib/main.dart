@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tamuhack/screens/find_a_friend/screen.dart';
 import 'package:tamuhack/screens/home/screen.dart';
+import 'package:tamuhack/screens/profile/screen.dart';
 
 import 'globals/app_colors.dart';
 import 'package:tamuhack/screens/rideshare/give_a_ride/screen.dart';
@@ -7,6 +9,8 @@ import 'package:tamuhack/screens/rideshare/find_a_ride/screen.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import './screens/find_a_friend/screen.dart';
+
 
 import 'screens/login/screen.dart';
 
@@ -41,12 +45,15 @@ class MyApp extends StatelessWidget {
         //home: const MyHomePage(title: 'Flutter Demo Home Page'),
         // Starts on the Login Screen
 
-        initialRoute: "/GiveRide",
+        initialRoute: "/",
         // List of routes for our User to use
         routes: {
           // Login Route for the User
           "/": (context) => const LoginPage(),
           "/Home": (context) => const HomePage(),
+          "/FindFriend": (context) => FindFriendPage(),
+          "/Profile": (context) => const ProfilePage(),
+          '/Friend': (context) => const FindAFriend(),
           "/GiveRide": (context) => const GiveRide(),
           "/FindRide": (context) => const FindRide(),
         });
