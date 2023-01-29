@@ -32,8 +32,10 @@ class _FindRideState extends State<FindRide> {
 
   String dropdownvalue = 'Monday';
 
-  final destination = TextEditingController();
+  final pickUp = TextEditingController();
   final timePickup = TextEditingController();
+  final date = TextEditingController();
+  final dropOff = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -84,6 +86,18 @@ class _FindRideState extends State<FindRide> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Enter time to be picked up (military time)',
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                  ),
+                  SizedBox(
+                    width: sWidth / 1.2,
+                    child: const TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Enter date',
                       ),
                     ),
                   ),

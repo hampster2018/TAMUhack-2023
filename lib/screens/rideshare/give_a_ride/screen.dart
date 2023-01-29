@@ -80,32 +80,63 @@ class _GiveRideState extends State<GiveRide> {
                   ),
                   SizedBox(
                     width: sWidth / 1.2,
-                    child: DropdownButton(
+                    child: DropdownButtonFormField(
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          //<-- SEE HERE
+                          borderSide: BorderSide(color: Colors.black, width: 2),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          //<-- SEE HERE
+                          borderSide: BorderSide(color: Colors.black, width: 2),
+                        ),
+                        filled: true,
+                        fillColor: AppColors.red,
+                      ),
+                      dropdownColor: AppColors.red,
                       isExpanded: true,
                       value: dropdownvalue,
                       items: const [
                         DropdownMenuItem<String>(
-                          child: Text('Choose a day'),
+                          child: Text(
+                            'Choose a day',
+                            style: TextStyle(color: Colors.white),
+                          ),
                           value: 'Choose a day',
                         ),
                         DropdownMenuItem<String>(
-                          child: Text('Monday'),
+                          child: Text(
+                            'Monday',
+                            style: TextStyle(color: Colors.white),
+                          ),
                           value: 'Monday',
                         ),
                         DropdownMenuItem<String>(
-                          child: Text('Tuesday'),
+                          child: Text(
+                            'Tuesday',
+                            style: TextStyle(color: Colors.white),
+                          ),
                           value: 'Tuesday',
                         ),
                         DropdownMenuItem<String>(
-                          child: Text('Wednesday'),
+                          child: Text(
+                            'Wednesday',
+                            style: TextStyle(color: Colors.white),
+                          ),
                           value: 'Wednesday',
                         ),
                         DropdownMenuItem<String>(
-                          child: Text('Thursday'),
+                          child: Text(
+                            'Thursday',
+                            style: TextStyle(color: Colors.white),
+                          ),
                           value: 'Thursday',
                         ),
                         DropdownMenuItem<String>(
-                          child: Text('Friday'),
+                          child: Text(
+                            'Friday',
+                            style: TextStyle(color: Colors.white),
+                          ),
                           value: 'Friday',
                         ),
                       ],
@@ -123,28 +154,56 @@ class _GiveRideState extends State<GiveRide> {
                   ),
                   SizedBox(
                     width: sWidth / 1.2,
-                    child: DropdownButton(
+                    child: DropdownButtonFormField(
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          //<-- SEE HERE
+                          borderSide: BorderSide(color: Colors.black, width: 2),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          //<-- SEE HERE
+                          borderSide: BorderSide(color: Colors.black, width: 2),
+                        ),
+                        filled: true,
+                        fillColor: AppColors.red,
+                      ),
+                      dropdownColor: AppColors.red,
                       isExpanded: true,
                       value: timevalue,
                       items: const [
                         DropdownMenuItem<String>(
-                          child: Text('Choose a time slot'),
+                          child: Text(
+                            'Choose a time slot',
+                            style: TextStyle(color: Colors.white),
+                          ),
                           value: 'Choose a time slot',
                         ),
                         DropdownMenuItem<String>(
-                          child: Text('< 5 min'),
+                          child: Text(
+                            '< 5 min',
+                            style: TextStyle(color: Colors.white),
+                          ),
                           value: 'Very Short',
                         ),
                         DropdownMenuItem<String>(
-                          child: Text('5-10 min'),
+                          child: Text(
+                            '5-10 min',
+                            style: TextStyle(color: Colors.white),
+                          ),
                           value: 'Short',
                         ),
                         DropdownMenuItem<String>(
-                          child: Text('10-15 min'),
+                          child: Text(
+                            '10-15 min',
+                            style: TextStyle(color: Colors.white),
+                          ),
                           value: 'Medium',
                         ),
                         DropdownMenuItem<String>(
-                          child: Text('> 15 min'),
+                          child: Text(
+                            '> 15 min',
+                            style: TextStyle(color: Colors.white),
+                          ),
                           value: 'Long ass drive',
                         ),
                       ],
