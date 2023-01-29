@@ -1,4 +1,4 @@
-class giveRide {
+class GiveRide {
   final String destination;
   final int day;
   final int month;
@@ -6,6 +6,6 @@ class giveRide {
   final int leavingTime;
   final int timeOutofWay;
 
-  giveRide(this.destination, this.day, this.month, this.year, this.leavingTime,
+  GiveRide(this.destination, this.day, this.month, this.year, this.leavingTime,
       this.timeOutofWay);
 }
