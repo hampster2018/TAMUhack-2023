@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
         //home: const MyHomePage(title: 'Flutter Demo Home Page'),
         // Starts on the Login Screen
 
-        initialRoute: "/",
+        initialRoute: "/GiveRide",
         // List of routes for our User to use
         routes: {
           // Login Route for the User

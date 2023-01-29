@@ -94,16 +94,15 @@ class _GiveRideState extends State<GiveRide> {
     }
   }
 
+  final TextEditingController _destination = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    TextEditingController _destination = TextEditingController();
-
     double sWidth = MediaQuery.of(context).size.width;
     double sHeight = MediaQuery.of(context).size.height;
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: AppColors.blue,
+          backgroundColor: AppColors.lightblue,
           centerTitle: true,
           title: const Text("Give Ride"),
           leading: IconButton(
@@ -129,12 +128,16 @@ class _GiveRideState extends State<GiveRide> {
                   ),
                   SizedBox(
                     width: sWidth / 1.2,
-                    child: TextField(
+                    child: CupertinoTextField(
                       controller: _destination,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Destination',
-                      ),
+                      placeholder: 'Pickup Destination',
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            color: Colors.black,
+                          ),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10))),
                     ),
                   ),
                   const Padding(
@@ -143,6 +146,9 @@ class _GiveRideState extends State<GiveRide> {
                   SizedBox(
                     width: sWidth / 1.2,
                     child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: AppColors.lightblue, // Background color
+                      ),
                       onPressed: _showDaySelect,
                       child: const Text('Select Your Days to Drive'),
                     ), /*DropdownButtonFormField(
@@ -227,6 +233,9 @@ class _GiveRideState extends State<GiveRide> {
                   SizedBox(
                     width: sWidth / 1.2,
                     child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: AppColors.lightblue, // Background color
+                      ),
                       onPressed: _showTimeSelect,
                       child: const Text('Select Your Time Rides'),
                     ),
@@ -283,7 +292,7 @@ class _GiveRideState extends State<GiveRide> {
                     padding: EdgeInsets.symmetric(vertical: 5),
                   ),
                   CupertinoButton(
-                      color: AppColors.blue,
+                      color: AppColors.lightblue,
                       child: Text(
                         "Submit",
                         textAlign: TextAlign.center,
@@ -361,7 +370,7 @@ class _GiveRideState extends State<GiveRide> {
                             runSpacing: 8.0,
                             children: passengers
                                 .map<Widget>((word) => Container(
-                                    color: Colors.blue,
+                                    color: AppColors.lightblue,
                                     width: sWidth / 2.4,
                                     height: 100,
                                     child: Center(

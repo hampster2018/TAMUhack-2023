@@ -35,10 +35,10 @@ class _FindRideState extends State<FindRide> {
 
   DateTime dateTime = DateTime.now();
 
-  final pickUp = TextEditingController();
-  final timePickup = TextEditingController();
-  final date = TextEditingController();
-  final dropOff = TextEditingController();
+  final TextEditingController pickUp = TextEditingController();
+  final TextEditingController timePickup = TextEditingController();
+  final TextEditingController date = TextEditingController();
+  final TextEditingController dropOff = TextEditingController();
 
   Future<DateTime?> pickDate() => showDatePicker(
       context: context,
@@ -86,11 +86,16 @@ class _FindRideState extends State<FindRide> {
                   ),
                   SizedBox(
                     width: sWidth / 1.2,
-                    child: const TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Pick Up Destination',
-                      ),
+                    child: CupertinoTextField(
+                      controller: pickUp,
+                      placeholder: 'Enter Pickup Destination',
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            color: Colors.black,
+                          ),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10))),
                     ),
                   ),
                   const Padding(
@@ -98,11 +103,16 @@ class _FindRideState extends State<FindRide> {
                   ),
                   SizedBox(
                     width: sWidth / 1.2,
-                    child: const TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Enter drop off destination',
-                      ),
+                    child: CupertinoTextField(
+                      controller: dropOff,
+                      placeholder: 'Enter Drop-off Destination',
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            color: Colors.black,
+                          ),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10))),
                     ),
                   ),
                   const Padding(
@@ -116,8 +126,12 @@ class _FindRideState extends State<FindRide> {
                           SizedBox(
                               width: sWidth / 2.5,
                               child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    primary:
+                                        AppColors.lightblue, // Background color
+                                  ),
                                   child: Text(
-                                      '${dateTime.year}/${dateTime.month}/${dateTime.day}'),
+                                      '${dateTime.month}/${dateTime.day}/${dateTime.year}'),
                                   onPressed: () async {
                                     final chosenDate = await pickDate();
                                     if (chosenDate == null) return;
@@ -128,6 +142,10 @@ class _FindRideState extends State<FindRide> {
                           SizedBox(
                               width: sWidth / 2.5,
                               child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    primary:
+                                        AppColors.lightblue, // Background color
+                                  ),
                                   child: Text('${hours}:${minutes}'),
                                   onPressed: () async {
                                     final chosenTime = await pickTime();
@@ -148,15 +166,13 @@ class _FindRideState extends State<FindRide> {
                     padding: EdgeInsets.symmetric(vertical: 10),
                   ),
                   CupertinoButton(
-                      color: AppColors.blue,
+                      color: AppColors.lightblue,
                       child: Text(
                         "Submit",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           height: sHeight * 0.0015,
                           fontSize: 26.0,
-                          fontFamily: 'Nunito',
-                          fontWeight: FontWeight.w700,
                         ),
                       ),
                       onPressed: () {
@@ -176,10 +192,15 @@ class _FindRideState extends State<FindRide> {
                           runSpacing: 8.0,
                           children: drivers
                               .map<Widget>((word) => Container(
-                                  color: Colors.blue,
+                                  color: AppColors.lightblue,
                                   width: sWidth / 2.4,
                                   height: 100,
-                                  child: Text(word)))
+                                  child: Center(
+                                      child: Text(word,
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                          textAlign: TextAlign.center))))
                               .toList(),
                         ),
                       )),
