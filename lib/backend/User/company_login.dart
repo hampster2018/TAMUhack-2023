@@ -23,8 +23,8 @@ Future<List> companyLogin(String email, String password) async {
     user.last = data['lastName'];
     user.email = data['email'];
     user.company = data['company'];
-    user.interest = List<string>.data['interest'];
-    user.friends = List<string>.data['friends'];
+    user.interest = data['interest'];
+    user.friends = data['friends'];
     return [true, "Success!"];
   }
 
