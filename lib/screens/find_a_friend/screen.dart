@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../globals/user.dart' as user;
 import '../../backend/Friend/get_friends.dart';
 import '../../backend/Friend/friend.dart';
-import '../../globals/user.dart';
 
 class FindAFriend extends StatefulWidget {
   const FindAFriend({Key? key}) : super(key: key);
@@ -40,11 +39,8 @@ class _FindAFriend extends State<FindAFriend> {
               children: asyncWidget
                   .map((friend) => Row(
                         children: [
-                          Divider(),
                           Column(
-
                             mainAxisAlignment: MainAxisAlignment.center,
-
                             children: <Widget>[ Container(
                               decoration: BoxDecoration(
                                   color: Colors.white,
@@ -57,8 +53,7 @@ class _FindAFriend extends State<FindAFriend> {
                                 flex: 1,
                               child: Padding(
                                 padding: const EdgeInsets.all(15),
-
-                              child: Row(
+                                child: Row(
                                 children: <Widget> [
                                   Container(
                                     width: 40,
@@ -74,6 +69,7 @@ class _FindAFriend extends State<FindAFriend> {
                                   ),
                                 ]
                               ),
+
                               )//expanded
                             ),),
                           ]),
@@ -97,7 +93,7 @@ class _FindAFriend extends State<FindAFriend> {
       child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            backgroundColor: Colors.blueAccent,
+            backgroundColor: Colors.lightBlueAccent,
             centerTitle: true,
             title: const Text("👥 Find Friends"),
           ),
