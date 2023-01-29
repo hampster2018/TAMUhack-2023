@@ -1,32 +1,4 @@
-class NearbyPlacesResponse {
-  String? nextPageToken;
-  List<Results>? results;
-  String? status;
 
-  NearbyPlacesResponse(
-      {this.nextPageToken, this.results, this.status});
-
-  NearbyPlacesResponse.fromJson(Map<String, dynamic> json) {
-    nextPageToken = json['next_page_token'];
-    if (json['results'] != null) {
-      results = <Results>[];
-      json['results'].forEach((v) {
-        results!.add(Results.fromJson(v));
-      });
-    }
-    status = json['status'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['next_page_token'] = this.nextPageToken;
-    if (this.results != null) {
-      data['results'] = this.results!.map((v) => v.toJson()).toList();
-    }
-    data['status'] = this.status;
-    return data;
-  }
-}
 
 class Results {
   Geometry? geometry;
