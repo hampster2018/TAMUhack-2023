@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tamuhack/globals/app_colors.dart';
 
@@ -15,6 +16,18 @@ class _FindRideState extends State<FindRide> {
     'Wednesday',
     'Thursday',
     'Friday',
+  ];
+
+  var drivers = [
+    "Manish",
+    "Eric",
+    "Shamitha",
+    "Avani",
+    "Sandeep",
+    "Reshvar",
+    "Rohit",
+    "Rohan",
+    "Sahil"
   ];
 
   String dropdownvalue = 'Monday';
@@ -75,7 +88,55 @@ class _FindRideState extends State<FindRide> {
                     ),
                   ),
                   const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                  ),
+                  SizedBox(
+                    width: sWidth / 1.2,
+                    child: const TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Enter drop off destination',
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                  ),
+                  CupertinoButton(
+                      color: AppColors.blue,
+                      child: Text(
+                        "Submit",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          height: sHeight * 0.0015,
+                          fontSize: 26.0,
+                          fontFamily: 'Nunito',
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      onPressed: () {}),
+                  const Padding(
                     padding: EdgeInsets.symmetric(vertical: 30),
+                  ),
+                  Expanded(
+                      flex: 1,
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Wrap(
+                          alignment: WrapAlignment.spaceEvenly,
+                          spacing: 8.0,
+                          runSpacing: 8.0,
+                          children: drivers
+                              .map<Widget>((word) => Container(
+                                  color: Colors.blue,
+                                  width: sWidth / 2.4,
+                                  height: 100,
+                                  child: Text(word)))
+                              .toList(),
+                        ),
+                      )),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10),
                   ),
                 ],
               ),

@@ -161,7 +161,7 @@ class _GiveRideState extends State<GiveRide> {
                     padding: EdgeInsets.symmetric(vertical: 10),
                   ),
                   CupertinoButton(
-                      color: AppColors.red,
+                      color: AppColors.blue,
                       child: Text(
                         "Submit",
                         textAlign: TextAlign.center,
@@ -174,7 +174,7 @@ class _GiveRideState extends State<GiveRide> {
                       ),
                       onPressed: () {}),
                   const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 30),
+                    padding: EdgeInsets.symmetric(vertical: 10),
                   ),
                   Expanded(
                       flex: 1,
