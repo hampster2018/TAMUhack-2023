@@ -225,98 +225,56 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         bottomNavigationBar: Padding(
-          padding: const EdgeInsets.only(bottom: 0),
-          child: Container(
-            height: 80,
-            color: AppColors.lightblue.withOpacity(.5),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: IconButton(
-                        onPressed: () {
-                          Navigator.of(context).pushReplacementNamed('/Home');
-                        },
-                        icon: Icon(Icons.home),
-                        color: AppColors.white)),
-                SizedBox(width: 5),
-                SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: IconButton(
-                        onPressed: () {
-                          Navigator.of(context).pushReplacementNamed('/');
-                          //Navigator.of(context).pushReplacementNamed('/Rideshare');
-                        },
-                        icon: Icon(Icons.directions_car),
-                        color: AppColors.white)),
-                SizedBox(width: 5),
-                SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: IconButton(
-                        onPressed: () {
-                          //Navigator.of(context).pushReplacementNamed('/MyFriends');
-                        },
-                        icon: Icon(Icons.people),
-                        color: AppColors.white)),
-                SizedBox(width: 5),
-                SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: IconButton(
-                        onPressed: () {
-                          Navigator.of(context)
-                              .pushReplacementNamed('/Profile');
-                        },
-                        icon: Icon(Icons.person),
-                        color: AppColors.white)),
-              ],
-            ),
-          padding: const EdgeInsets.only(bottom: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: IconButton(
-                      onPressed: () {
-                        Navigator.of(context).pushReplacementNamed('/Home');
-                      },
-                      icon: const Icon(Icons.home))),
-              const SizedBox(width: 5),
-              SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: IconButton(
-                      onPressed: () {
-                        Navigator.of(context).pushReplacementNamed('/');
-                        //Navigator.of(context).pushReplacementNamed('/Rideshare');
-                      },
-                      icon: const Icon(Icons.car_crash))),
-              const SizedBox(width: 5),
-              SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: IconButton(
-                      onPressed: () {
-                        //Navigator.of(context).pushReplacementNamed('/FindFriend');
-                      },
-                      icon: const Icon(Icons.people))),
-              const SizedBox(width: 5),
-              SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: IconButton(
-                      onPressed: () {
-                        //Navigator.of(context).pushReplacementNamed('/Profile');
-                      },
-                      icon: const Icon(Icons.person))),
-            ],
-          ),
-        ));
+            padding: const EdgeInsets.only(bottom: 0),
+            child: Container(
+              height: 80,
+              color: AppColors.lightblue.withOpacity(.5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: IconButton(
+                          onPressed: () {
+                            Navigator.of(context).pushReplacementNamed('/Home');
+                          },
+                          icon: Icon(Icons.home),
+                          color: AppColors.white)),
+                  SizedBox(width: 5),
+                  SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: IconButton(
+                          onPressed: () {
+                            Navigator.of(context).pushReplacementNamed('/');
+                            //Navigator.of(context).pushReplacementNamed('/Rideshare');
+                          },
+                          icon: Icon(Icons.directions_car),
+                          color: AppColors.white)),
+                  SizedBox(width: 5),
+                  SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: IconButton(
+                          onPressed: () {
+                            //Navigator.of(context).pushReplacementNamed('/MyFriends');
+                          },
+                          icon: Icon(Icons.people),
+                          color: AppColors.white)),
+                  SizedBox(width: 5),
+                  SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: IconButton(
+                          onPressed: () {
+                            Navigator.of(context)
+                                .pushReplacementNamed('/Profile');
+                          },
+                          icon: Icon(Icons.person),
+                          color: AppColors.white)),
+                ],
+              ),
+            )));
   }
 }
