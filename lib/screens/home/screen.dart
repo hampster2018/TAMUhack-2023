@@ -100,21 +100,47 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: AppColors.blue,
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 50),
-              child: Container(
-                height: 100,
-                child: Text("Hello Shamitha",
-                    style: TextStyle(color: AppColors.white, fontSize: 40)),
-              ),
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("images/citybg.jpg"),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            backgroundColor: AppColors.white.withOpacity(.90),
+            centerTitle: true,
+            title: const Text(
+              "Hello Shamitha",
+              style: TextStyle(
+                  color: Color.fromRGBO(0, 47, 108, 1.0),
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
-              child: Row(
+            toolbarHeight: 100,
+            /*leading: IconButton(
+                icon: const Icon(Icons.arrow_circle_left_outlined,
+                    color: Color.fromRGBO(182, 31, 35, 1.0), size: 30),
+                onPressed: () {
+                  Navigator.of(context).pushReplacementNamed('/FindRide');
+                },
+              ),*/
+          ),
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              /*Container(
+                //height: 100,
+                child: Text("Hello, Shamitha",
+                    style: TextStyle(
+                        color: AppColors.blue,
+                        fontSize: 50,
+                        fontWeight: FontWeight.bold)),
+              ),
+              Divider(),*/
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
@@ -122,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                     height: 110,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.steelblue),
+                            backgroundColor: AppColors.white.withOpacity(.85)),
                         child: Column(
                           children: [
                             Padding(
@@ -139,13 +165,14 @@ class _HomePageState extends State<HomePage> {
                           //Navigator.of(context).pushReplacementNamed('/Hotspots');
                         }),
                   ),
+                  SizedBox(width: 10),
                   SizedBox(width: 15),
                   SizedBox(
                     width: 110,
                     height: 110,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.steelblue),
+                            backgroundColor: AppColors.white.withOpacity(.85)),
                         child: Column(
                           children: [
                             Padding(
@@ -159,7 +186,8 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                         onPressed: () {
-                          //Navigator.of(context).pushReplacementNamed('/Rideshare');
+                          Navigator.of(context)
+                              .pushReplacementNamed('/FindRide');
                         }),
                   ),
                   SizedBox(width: 15),
@@ -168,7 +196,7 @@ class _HomePageState extends State<HomePage> {
                     height: 110,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.steelblue),
+                            backgroundColor: AppColors.white.withOpacity(.85)),
                         child: Column(
                           children: [
                             Padding(
@@ -187,90 +215,101 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-            ),
-            SizedBox(height: 30),
-            SizedBox(
-                child: Text('Hotspots Near Me',
-                    style: TextStyle(color: AppColors.white, fontSize: 25))),
-            // add map widget here
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  color: AppColors.steelblue,
-                ),
-                //color: AppColors.steelblue,
-                width: 355,
-                height: 400,
-                child: GoogleMap(
-                  onMapCreated: _onMapCreated,
-                  initialCameraPosition: CameraPosition(
-                    target: _center,
-                    zoom: 11.0,
+              SizedBox(height: 30),
+              Container(
+                  alignment: Alignment.center,
+                  width: 360,
+                  height: 40,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: AppColors.white.withOpacity(.85)),
+                  child: Text('Hotspots Near Me',
+                      style: TextStyle(
+                          color: AppColors.black,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w400))),
+              // add map widget here
+              Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    color: AppColors.white,
                   ),
-                  markers: Set<Marker>.of(_markers),
-                  mapType: MapType.normal,
-                  myLocationEnabled: true,
-                  compassEnabled: true,
-                ),
+                  //color: AppColors.steelblue,
+                  width: 360,
+                  height: 400,
+                  child: GoogleMap(
+                    onMapCreated: _onMapCreated,
+                    initialCameraPosition: CameraPosition(
+                      target: _center,
+                      zoom: 13.0,
+                    ),
+                    markers: Set<Marker>.of(_markers),
+                    mapType: MapType.normal,
+                    myLocationEnabled: true,
+                    compassEnabled: true,
+                  ),
 
-                //Image(image: AssetImage('images/map.png'))
+                  //Image(image: AssetImage('images/map.png'))
+                ),
               ),
-            ),
-          ],
-        ),
-        bottomNavigationBar: Padding(
-            padding: const EdgeInsets.only(bottom: 0),
-            child: Container(
-              height: 80,
-              color: AppColors.lightblue.withOpacity(.5),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                      width: 50,
-                      height: 50,
-                      child: IconButton(
-                          onPressed: () {
-                            Navigator.of(context).pushReplacementNamed('/Home');
-                          },
-                          icon: Icon(Icons.home),
-                          color: AppColors.white)),
-                  SizedBox(width: 5),
-                  SizedBox(
-                      width: 50,
-                      height: 50,
-                      child: IconButton(
-                          onPressed: () {
-                            Navigator.of(context).pushReplacementNamed('/');
-                            //Navigator.of(context).pushReplacementNamed('/Rideshare');
-                          },
-                          icon: Icon(Icons.directions_car),
-                          color: AppColors.white)),
-                  SizedBox(width: 5),
-                  SizedBox(
-                      width: 50,
-                      height: 50,
-                      child: IconButton(
-                          onPressed: () {
-                            //Navigator.of(context).pushReplacementNamed('/MyFriends');
-                          },
-                          icon: Icon(Icons.people),
-                          color: AppColors.white)),
-                  SizedBox(width: 5),
-                  SizedBox(
-                      width: 50,
-                      height: 50,
-                      child: IconButton(
-                          onPressed: () {
-                            Navigator.of(context)
-                                .pushReplacementNamed('/Profile');
-                          },
-                          icon: Icon(Icons.person),
-                          color: AppColors.white)),
-                ],
-              ),
-            )));
+            ],
+          ),
+          bottomNavigationBar: Padding(
+              padding: const EdgeInsets.only(bottom: 0),
+              child: Container(
+                height: 80,
+                color: AppColors.white.withOpacity(.85),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: IconButton(
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushReplacementNamed('/Home');
+                            },
+                            icon: const Icon(Icons.home, size: 35),
+                            color: AppColors.blue)),
+                    const Divider(),
+                    SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: IconButton(
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushReplacementNamed('/FindRide');
+                              //Navigator.of(context).pushReplacementNamed('/Rideshare');
+                            },
+                            icon: const Icon(Icons.directions_car, size: 35),
+                            color: AppColors.blue)),
+                    const Divider(),
+                    SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: IconButton(
+                            onPressed: () {
+                              //Navigator.of(context).pushReplacementNamed('/MyFriends');
+                            },
+                            icon: const Icon(Icons.people, size: 35),
+                            color: AppColors.blue)),
+                    const Divider(),
+                    SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: IconButton(
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushReplacementNamed('/Profile');
+                            },
+                            icon: const Icon(Icons.person, size: 35),
+                            color: AppColors.blue)),
+                  ],
+                ),
+              ))),
+    );
   }
 }

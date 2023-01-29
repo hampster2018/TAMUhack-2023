@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tamuhack/globals/app_colors.dart';
+// import 'package:tamuhack/screens/hotspots/nearby_places_screen.dart';
+// import 'package:tamuhack/screens/hotspots/screen.dart';
 
 import '../../backend/User/login.dart';
 import '../../backend/User/company_login.dart';
@@ -11,66 +13,64 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.blue,
-      body: Padding(
-        padding: const EdgeInsets.only(top: 50),
-        child: Column(
-          //mainAxisAlignment: MainAxisAlignment.center,
-          //crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            //const SizedBox(width: 120, height: 120, child:Image(image: AssetImage('assets/graphics/logo.png'))),
-            const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
-            Container(
-              width: 325,
-              height: 100,
-              decoration: BoxDecoration(
-                  color: const Color.fromRGBO(199, 208, 215, 1.0),
-                  border: Border.all(
-                    color: const Color.fromRGBO(199, 208, 215, 1.0),
-                  ),
-                  borderRadius: const BorderRadius.all(Radius.circular(20))),
-              //color: Colors.grey,
-              child: Column(
-                children: [
-                  Container(
-                    height: 10,
-                  ),
-                  const Text(
-                    'AppName TBD',
-                    style: TextStyle(
-                        color: Color.fromRGBO(182, 31, 35, 1.0), fontSize: 20),
-                  ),
-                  Container(
-                    height: 20,
-                  ),
-                ],
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("images/citybg.jpg"),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.white.withOpacity(.30),
+        body: Padding(
+          padding: const EdgeInsets.only(left: 43.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Friendscape',
+                style: TextStyle(
+                    color: AppColors.red,
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold),
               ),
-            ),
-            const Padding(padding: EdgeInsets.symmetric(vertical: 20)),
-
-            Container(
-                width: 325,
-                height: 220,
-                decoration: BoxDecoration(
-                    color: const Color.fromRGBO(199, 208, 215, 1.0),
-                    border: Border.all(
+              //const Divider(),
+              //const SizedBox(width: 120, height: 120, child:Image(image: AssetImage('assets/graphics/logo.png'))),
+              Container(
+                child: const Image(
+                    image: AssetImage('images/logo.png'),
+                    width: 110,
+                    height: 110),
+              ),
+              //const Divider(),
+              Container(
+                  alignment: Alignment.center,
+                  width: 325,
+                  height: 200,
+                  decoration: BoxDecoration(
                       color: const Color.fromRGBO(199, 208, 215, 1.0),
-                    ),
-                    borderRadius: const BorderRadius.all(Radius.circular(20))),
-                child: const CompanyLoginInfo()),
-            Container(height: 20),
-            Container(
-                width: 325,
-                height: 220,
-                decoration: BoxDecoration(
-                    color: const Color.fromRGBO(199, 208, 215, 1.0),
-                    border: Border.all(
+                      border: Border.all(
+                        color: const Color.fromRGBO(199, 208, 215, 1.0),
+                      ),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(20))),
+                  child: const CompanyLoginInfo()),
+              //const Divider(),
+              Container(
+                  alignment: Alignment.center,
+                  width: 325,
+                  height: 200,
+                  decoration: BoxDecoration(
                       color: const Color.fromRGBO(199, 208, 215, 1.0),
-                    ),
-                    borderRadius: const BorderRadius.all(Radius.circular(20))),
-                child: const IndividualLoginInfo()),
-          ],
+                      border: Border.all(
+                        color: const Color.fromRGBO(199, 208, 215, 1.0),
+                      ),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(20))),
+                  child: const IndividualLoginInfo()),
+            ],
+          ),
         ),
       ),
     );
@@ -96,25 +96,24 @@ class _CompanyLoginInfoState extends State<CompanyLoginInfo> {
     return Form(
       key: _formKey,
       child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text(
               'Company Login',
               style: TextStyle(
-                  color: Color.fromRGBO(182, 31, 35, 1.0), fontSize: 20),
+                  color: Color.fromRGBO(182, 31, 35, 1.0),
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500),
             ),
-            Container(
-              height: 25,
-            ),
+            //const Divider(),
             SizedBox(
               width: 300,
-              height: 35,
+              //height: 35,
               child: CupertinoTextField(
                 controller: controllerUserSignIn,
                 placeholder: 'Username',
-                placeholderStyle:
-                    TextStyle(color: Theme.of(context).colorScheme.onSecondary),
+                placeholderStyle: TextStyle(color: AppColors.steelblue),
                 decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border.all(
@@ -125,17 +124,14 @@ class _CompanyLoginInfoState extends State<CompanyLoginInfo> {
                 textAlign: TextAlign.center,
               ),
             ),
-            Container(
-              height: 15,
-            ),
+            //const Divider(),
             SizedBox(
               width: 300,
-              height: 35,
+              //height: 35,
               child: CupertinoTextField(
                 controller: controllerPassSignIn,
                 placeholder: 'Password',
-                placeholderStyle:
-                    TextStyle(color: Theme.of(context).colorScheme.onSecondary),
+                placeholderStyle: TextStyle(color: AppColors.steelblue),
                 decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border.all(
@@ -146,15 +142,14 @@ class _CompanyLoginInfoState extends State<CompanyLoginInfo> {
                 textAlign: TextAlign.center,
               ),
             ),
-            Container(
-              height: 20,
-            ),
+            //const Divider(),
             SizedBox(
               width: 250,
               child: CupertinoButton(
-                  color: Theme.of(context).colorScheme.background,
+                  color: AppColors.lightblue,
                   child: const Text("Sign In",
-                      style: TextStyle(color: Colors.white)),
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold)),
                   onPressed: () async {
                     List tryLogin = await companyLogin(
                         controllerUserSignIn.text, controllerPassSignIn.text);
@@ -163,7 +158,7 @@ class _CompanyLoginInfoState extends State<CompanyLoginInfo> {
                           .load('images/emptyProfile.jpg')
                           .then((value) => value.buffer.asUint8List());
                       // ignore: use_build_context_synchronously
-                      Navigator.of(context).pushReplacementNamed('/Friend');
+                      Navigator.of(context).pushReplacementNamed('/Home');
                     }
                   }),
             ),
@@ -191,25 +186,24 @@ class _IndividualLoginInfoState extends State<IndividualLoginInfo> {
     return Form(
       key: _formKey,
       child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text(
               'Individual Login',
               style: TextStyle(
-                  color: Color.fromRGBO(182, 31, 35, 1.0), fontSize: 20),
+                  color: Color.fromRGBO(182, 31, 35, 1.0),
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500),
             ),
-            Container(
-              height: 25,
-            ),
+            //const Divider(),
             SizedBox(
               width: 300,
-              height: 35,
+              //height: 35,
               child: CupertinoTextField(
                 controller: controllerUserSignIn,
                 placeholder: 'Username',
-                placeholderStyle:
-                    TextStyle(color: Theme.of(context).colorScheme.onSecondary),
+                placeholderStyle: TextStyle(color: AppColors.steelblue),
                 decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border.all(
@@ -220,17 +214,14 @@ class _IndividualLoginInfoState extends State<IndividualLoginInfo> {
                 textAlign: TextAlign.center,
               ),
             ),
-            Container(
-              height: 15,
-            ),
+            //const Divider(),
             SizedBox(
               width: 300,
-              height: 35,
+              //height: 35,
               child: CupertinoTextField(
                 controller: controllerPassSignIn,
                 placeholder: 'Password',
-                placeholderStyle:
-                    TextStyle(color: Theme.of(context).colorScheme.onSecondary),
+                placeholderStyle: TextStyle(color: AppColors.steelblue),
                 decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border.all(
@@ -241,15 +232,14 @@ class _IndividualLoginInfoState extends State<IndividualLoginInfo> {
                 textAlign: TextAlign.center,
               ),
             ),
-            Container(
-              height: 20,
-            ),
+            //const Divider(),
             SizedBox(
               width: 250,
               child: CupertinoButton(
-                  color: Theme.of(context).colorScheme.background,
+                  color: AppColors.lightblue,
                   child: const Text("Sign In",
-                      style: TextStyle(color: Colors.white)),
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold)),
                   onPressed: () async {
                     List tryLogin = await login(
                         controllerUserSignIn.text, controllerPassSignIn.text);
@@ -258,7 +248,7 @@ class _IndividualLoginInfoState extends State<IndividualLoginInfo> {
                           .load('images/emptyProfile.jpg')
                           .then((value) => value.buffer.asUint8List());
                       // ignore: use_build_context_synchronously
-                      Navigator.of(context).pushReplacementNamed('/Friend');
+                      Navigator.of(context).pushReplacementNamed('/Home');
                     }
                   }),
             ),

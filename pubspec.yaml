@@ -38,11 +38,11 @@ dependencies:
   cloud_firestore: ^4.3.1
   firebase_core: ^2.4.1
   firebase_auth: ^4.2.5
+  flutter_google_places: ^0.3.0
   syncfusion_flutter_maps: ^20.4.44
   location: ^4.4.0
   geolocator: ^9.0.2
   google_maps_flutter: ^2.2.3
-  geocoder: ^0.2.1
   geocoding: ^2.0.5
   user_profile_avatar: ^0.1.2
   circular_profile_avatar: ^2.0.5
@@ -62,6 +62,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  http: ^0.13.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -76,7 +77,18 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - images/map.png
+    - images/kylefield.png
+    - images/bonfirememorial.jpg
+    - images/gwbush.jpg
+    - images/librarygardens.jpg
+    - images/olsen.jpg
+    - images/starscinema.jpg
     - images/emptyProfile.jpg
+    - images/logo.png
+    - images/citybg.jpg
+    - images/example1.jpg
+    - images/example.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
