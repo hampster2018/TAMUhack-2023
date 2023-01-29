@@ -10,6 +10,6 @@ class User {
   List friends = ["example1"];
   List<DocumentReference> requestedRides = [];
 
-  User(this.first, this.last, this.email, [this.company = "None", this.interest = const [], this.friends = const []);
+  User(this.first, this.last, this.email, [this.company = "None", this.interest = const [], this.friends = const []]);
 
 }

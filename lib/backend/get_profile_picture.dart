@@ -3,7 +3,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/services.dart';
 import '../globals/user.dart' as user;
 
-const oneMegabyte = 1024 * 1024;
+const oneMegabyte = 1024*1024;
 
 Future<Uint8List> getProfilePicture(email) async {
   final storageRef = FirebaseStorage.instance.ref();

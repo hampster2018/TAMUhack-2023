@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../globals/user.dart' as user;
 import '../../backend/Friend/get_friends.dart';
 import '../../backend/Friend/friend.dart';
+import '../../globals/user.dart';
 
 class FindAFriend extends StatefulWidget {
   const FindAFriend({Key? key}) : super(key: key);
@@ -39,8 +40,44 @@ class _FindAFriend extends State<FindAFriend> {
               children: asyncWidget
                   .map((friend) => Row(
                         children: [
-                          Image.memory(friend.profilePicturePath),
-                          Text("${friend.firstName} ${friend.lastName}")
+                          Divider(),
+                          Column(
+
+                            mainAxisAlignment: MainAxisAlignment.center,
+
+                            children: <Widget>[ Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  border: Border.all(
+                                    color: Colors.white,
+                                  ),
+                                  borderRadius: BorderRadius.all(Radius.circular(20))
+                              ),
+                              child: Expanded(
+                                flex: 1,
+                              child: Padding(
+                                padding: const EdgeInsets.all(15),
+
+                              child: Row(
+                                children: <Widget> [
+                                  Container(
+                                    width: 40,
+                                  ),
+                                  Image.memory(scale: 10, friend.profilePicturePath),
+                                  Container(
+                                    width: 20,
+                                  ),
+                                      Text("${friend.firstName} ${friend.lastName}",
+                                          style: TextStyle(fontSize: 24)),
+                                  Container(
+                                    width: 65,
+                                  ),
+                                ]
+                              ),
+                              )//expanded
+                            ),),
+                          ]),
+
                         ],
                       ))
                   .toList()),
@@ -50,18 +87,36 @@ class _FindAFriend extends State<FindAFriend> {
       list = const Text("Loading");
     }
 
-    return Scaffold(
-        body: Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 50),
-          child: Container(
-            height: 100,
-            child: Text(user.company, style: const TextStyle(fontSize: 40)),
-          ),
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("images/citybg.jpg"),
+          fit: BoxFit.cover,
         ),
-        list,
-      ],
-    ));
+      ),
+      child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            backgroundColor: Colors.blueAccent,
+            centerTitle: true,
+            title: const Text("👥 Find Friends"),
+          ),
+          body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child:
+            Container(
+              //color: Colors.blueGrey,
+              child: Padding(
+                padding: const EdgeInsets.all(15),
+
+              child: Text("Searching in: " + user.company, style: const TextStyle(fontSize: 22, fontStyle: FontStyle.italic)),
+              ), ),
+          ),
+          list,
+        ],
+      )),
+    );
   }
 }
