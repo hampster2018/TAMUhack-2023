@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tamuhack/globals/app_colors.dart';
+import '../../../backend/Rides/find_ride_class.dart';
 
 class FindRide extends StatefulWidget {
   const FindRide({Key? key}) : super(key: key);
 
   @override
-  _FindRideState createState() => _FindRideState();
+  State<FindRide> createState() => _FindRideState();
 }
 
 class _FindRideState extends State<FindRide> {
@@ -158,7 +159,10 @@ class _FindRideState extends State<FindRide> {
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      onPressed: () {}),
+                      onPressed: () {
+                        makeRide(pickUp.text, dropOff.text, date.text,
+                            timePickup.text, false, false);
+                      }),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 10),
                   ),

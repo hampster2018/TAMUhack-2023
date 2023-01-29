@@ -5,7 +5,7 @@ import '../User/user.dart';
 Future<List<DocumentSnapshot>> getUserRequest(
     String destination,
     List<String> days,
-    int extraTime,
+    String extraTime,
     bool friendOnly,
     bool sameGenderOnly) async {
   CollectionReference needRides =

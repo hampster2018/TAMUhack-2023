@@ -1,4 +1,3 @@
-/*import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -49,16 +48,13 @@ class _HomePageState extends State<HomePage> {
     long = -96.341671918995;
     Future<Position> data = _determinePosition();
     data.then((value) {
-      print("value $value");
       setState(() {
         lat = value.latitude;
         long = value.longitude;
       });
 
       //getAddress(value.latitude, value.longitude);
-    }).catchError((error) {
-      print("Error $error");
-    });
+    }).catchError((error) {});
     return LatLng(lat, long);
   }
 
@@ -96,7 +92,7 @@ class _HomePageState extends State<HomePage> {
   ];
 
   late GoogleMapController mapController;
-  final LatLng _center = LatLng(30.611560198615287, -96.341671918995);
+  final LatLng _center = const LatLng(30.611560198615287, -96.341671918995);
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -225,99 +221,56 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         bottomNavigationBar: Padding(
-          padding: const EdgeInsets.only(bottom: 0),
-          child: Container(
-            height: 80,
-            color: AppColors.lightblue.withOpacity(.5),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: IconButton(
-                        onPressed: () {
-                          Navigator.of(context).pushReplacementNamed('/Home');
-                        },
-                        icon: Icon(Icons.home),
-                        color: AppColors.white)),
-                SizedBox(width: 5),
-                SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: IconButton(
-                        onPressed: () {
-                          Navigator.of(context).pushReplacementNamed('/');
-                          //Navigator.of(context).pushReplacementNamed('/Rideshare');
-                        },
-                        icon: Icon(Icons.directions_car),
-                        color: AppColors.white)),
-                SizedBox(width: 5),
-                SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: IconButton(
-                        onPressed: () {
-                          //Navigator.of(context).pushReplacementNamed('/MyFriends');
-                        },
-                        icon: Icon(Icons.people),
-                        color: AppColors.white)),
-                SizedBox(width: 5),
-                SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: IconButton(
-                        onPressed: () {
-                          Navigator.of(context)
-                              .pushReplacementNamed('/Profile');
-                        },
-                        icon: Icon(Icons.person),
-                        color: AppColors.white)),
-              ],
-            ),
-          padding: const EdgeInsets.only(bottom: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: IconButton(
-                      onPressed: () {
-                        Navigator.of(context).pushReplacementNamed('/Home');
-                      },
-                      icon: const Icon(Icons.home))),
-              const SizedBox(width: 5),
-              SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: IconButton(
-                      onPressed: () {
-                        Navigator.of(context).pushReplacementNamed('/');
-                        //Navigator.of(context).pushReplacementNamed('/Rideshare');
-                      },
-                      icon: const Icon(Icons.car_crash))),
-              const SizedBox(width: 5),
-              SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: IconButton(
-                      onPressed: () {
-                        //Navigator.of(context).pushReplacementNamed('/FindFriend');
-                      },
-                      icon: const Icon(Icons.people))),
-              const SizedBox(width: 5),
-              SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: IconButton(
-                      onPressed: () {
-                        //Navigator.of(context).pushReplacementNamed('/Profile');
-                      },
-                      icon: const Icon(Icons.person))),
-            ],
-          ),
-        )));
+            padding: const EdgeInsets.only(bottom: 0),
+            child: Container(
+              height: 80,
+              color: AppColors.lightblue.withOpacity(.5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: IconButton(
+                          onPressed: () {
+                            Navigator.of(context).pushReplacementNamed('/Home');
+                          },
+                          icon: Icon(Icons.home),
+                          color: AppColors.white)),
+                  SizedBox(width: 5),
+                  SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: IconButton(
+                          onPressed: () {
+                            Navigator.of(context).pushReplacementNamed('/');
+                            //Navigator.of(context).pushReplacementNamed('/Rideshare');
+                          },
+                          icon: Icon(Icons.directions_car),
+                          color: AppColors.white)),
+                  SizedBox(width: 5),
+                  SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: IconButton(
+                          onPressed: () {
+                            //Navigator.of(context).pushReplacementNamed('/MyFriends');
+                          },
+                          icon: Icon(Icons.people),
+                          color: AppColors.white)),
+                  SizedBox(width: 5),
+                  SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: IconButton(
+                          onPressed: () {
+                            Navigator.of(context)
+                                .pushReplacementNamed('/Profile');
+                          },
+                          icon: Icon(Icons.person),
+                          color: AppColors.white)),
+                ],
+              ),
+            )));
   }
 }
-*/
