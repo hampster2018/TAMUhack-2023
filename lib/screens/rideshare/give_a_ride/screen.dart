@@ -1,15 +1,34 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:tamuhack/globals/app_colors.dart';
+import '../../../backend/Rides/give_ride_class.dart';
 
 class GiveRide extends StatefulWidget {
   const GiveRide({Key? key}) : super(key: key);
 
   @override
-  _GiveRideState createState() => _GiveRideState();
+  State<GiveRide> createState() => _GiveRideState();
 }
 
 class _GiveRideState extends State<GiveRide> {
+  List<DocumentSnapshot> _requestedRides = [];
+
+  void findRides(List<String> day, String destination, String selectedTime,
+      bool friendsOnly, bool sameGenderOnly) {
+    getUserRequest(
+            destination = destination,
+            days = day,
+            extraTime = selectedTime,
+            friendsOnly = friendsOnly,
+            sameGenderOnly = sameGenderOnly)
+        .then((result) => {
+              setState(() {
+                _requestedRides = result;
+              })
+            });
+  }
+
   var days = [
     'Monday',
     'Tuesday',
@@ -33,10 +52,11 @@ class _GiveRideState extends State<GiveRide> {
   String dropdownvalue = 'Choose a day';
   String timevalue = 'Choose a time slot';
 
-  final destination = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController _destination = TextEditingController();
+
     double sWidth = MediaQuery.of(context).size.width;
     double sHeight = MediaQuery.of(context).size.height;
     return MaterialApp(
@@ -68,11 +88,13 @@ class _GiveRideState extends State<GiveRide> {
                   ),
                   SizedBox(
                     width: sWidth / 1.2,
-                    child: const TextField(
+                    child: TextField(
+                      controller: _destination,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Destination',
                       ),
+                      
                     ),
                   ),
                   const Padding(
@@ -231,7 +253,9 @@ class _GiveRideState extends State<GiveRide> {
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      onPressed: () {}),
+                      onPressed: () {
+                        findRides()
+                      }),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 10),
                   ),
