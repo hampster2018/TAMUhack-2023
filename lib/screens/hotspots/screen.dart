@@ -168,7 +168,7 @@ class _GFGState extends State<GFG> {
                             Text('Library Gardens'),
                             Divider(height: 3),
                             Text('2.1 mi away', style: TextStyle(fontSize: 10)),
-                            SizedBox(height: 10),
+                            SizedBox(height: 7),
                             Image(
                                 image: AssetImage('images/librarygardens.jpg'))
                           ]),
@@ -296,8 +296,6 @@ class _GFGState extends State<GFG> {
               // ),
             ], //children of initial column
           ),
-
-          //  ),
           bottomNavigationBar: Padding(
               padding: const EdgeInsets.only(bottom: 0),
               child: Container(

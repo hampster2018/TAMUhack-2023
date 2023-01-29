@@ -29,12 +29,15 @@ Future<List<Friend>> getFriends() async {
 
   QuerySnapshot snapshot =
       await users.where('email', whereIn: user.friends).limit(10).get();
+  log(snapshot.toString());
 
   List<DocumentSnapshot<Object?>> data = snapshot.docs;
+  log(data.toString());
 
   List<Friend> friends = [];
 
   for (int i = 0; i < data.length; i++) {
+    log(data[i]['email']);
     Uint8List image = await getProfilePicture(data[i]['email']);
 
     friends.add(Friend(

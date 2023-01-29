@@ -29,7 +29,15 @@
             {
               "client_id": "671693178561-b4bpj6km702j7515ju2uopha328ab3b4.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "671693178561-97di7ttpqd03qa8t00parbvnta290ts1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tamuhack"
+              }
             }
+
           ]
         }
       }

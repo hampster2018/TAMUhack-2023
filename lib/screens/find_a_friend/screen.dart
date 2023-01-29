@@ -30,7 +30,7 @@ class _FindAFriend extends State<FindAFriend> {
 
   @override
   Widget build(BuildContext context) {
-    late Widget list;
+    /*late Widget list;
     if (asyncWidget.isNotEmpty) {
       list = Expanded(
         flex: 1,
@@ -88,7 +88,7 @@ class _FindAFriend extends State<FindAFriend> {
       );
     } else {
       list = const Text("Loading");
-    }
+    }*/
 
     return Container(
       alignment: Alignment.center,
@@ -127,8 +127,8 @@ class _FindAFriend extends State<FindAFriend> {
                     padding: const EdgeInsets.all(15),
                     child: Row(
                       children: [
-                        Icon(Icons.search),
-                        VerticalDivider(width: 15),
+                        const Icon(Icons.search),
+                        const VerticalDivider(width: 15),
                         Text("Searching in: " + user.company,
                             style: const TextStyle(
                                 fontSize: 22, fontStyle: FontStyle.italic)),
@@ -137,8 +137,143 @@ class _FindAFriend extends State<FindAFriend> {
                   ),
                 ),
               ),
-              Divider(),
-              list,
+              const Divider(height: 40),
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30.0, right: 30),
+                    child: Container(
+                      height: 100,
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: AppColors.white),
+                      child: Row(children: [
+                        const Image(
+                            image: AssetImage('images/example1.jpg'),
+                            width: 70,
+                            height: 70),
+                        VerticalDivider(
+                          indent: 10,
+                          endIndent: 10,
+                          thickness: 2,
+                          color: AppColors.red,
+                          width: 50,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text(
+                              'John Doe',
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  color: Color.fromRGBO(0, 47, 108, 1.0),
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            Divider(),
+                            Text(
+                              'Interests: Hiking, Cooking',
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Color.fromRGBO(0, 47, 108, 1.0),
+                                  fontWeight: FontWeight.w400),
+                            )
+                          ],
+                        )
+                      ]),
+                    ),
+                  ),
+                  Divider(),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30.0, right: 30),
+                    child: Container(
+                      height: 100,
+                      padding: const EdgeInsets.only(left: 20, right: 13),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: AppColors.white),
+                      child: Row(children: [
+                        const Image(
+                            image: AssetImage('images/example.jpg'),
+                            width: 70,
+                            height: 70),
+                        VerticalDivider(
+                          indent: 10,
+                          endIndent: 10,
+                          thickness: 2,
+                          color: AppColors.red,
+                          width: 50,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text(
+                              'Jane Does',
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  color: Color.fromRGBO(0, 47, 108, 1.0),
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            Divider(),
+                            Text(
+                              'Interests: Cooking, Swimming',
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Color.fromRGBO(0, 47, 108, 1.0),
+                                  fontWeight: FontWeight.w400),
+                            )
+                          ],
+                        )
+                      ]),
+                    ),
+                  ),
+                  Divider(),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30.0, right: 30),
+                    child: Container(
+                      height: 100,
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: AppColors.white),
+                      child: Row(children: [
+                        const Image(
+                            image: AssetImage('images/emptyProfile.jpg'),
+                            width: 70,
+                            height: 70),
+                        VerticalDivider(
+                          indent: 10,
+                          endIndent: 10,
+                          thickness: 2,
+                          color: AppColors.red,
+                          width: 50,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text(
+                              'Eric Shields',
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  color: Color.fromRGBO(0, 47, 108, 1.0),
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            Divider(),
+                            Text(
+                              'Interests: Coding, Cooking',
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: Color.fromRGBO(0, 47, 108, 1.0),
+                                  fontWeight: FontWeight.w400),
+                            )
+                          ],
+                        )
+                      ]),
+                    ),
+                  )
+                ],
+              )
+              //list,
             ],
           ),
           bottomNavigationBar: Padding(
@@ -177,7 +312,8 @@ class _FindAFriend extends State<FindAFriend> {
                         height: 50,
                         child: IconButton(
                             onPressed: () {
-                              //Navigator.of(context).pushReplacementNamed('/MyFriends');
+                              Navigator.of(context)
+                                  .pushReplacementNamed('/Friend');
                             },
                             icon: const Icon(Icons.people, size: 35),
                             color: AppColors.blue)),

@@ -83,9 +83,9 @@ class _FindRideState extends State<FindRide> {
                 children: [
                   Column(
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 10),
-                      ),
+                      // const Padding(
+                      //   padding: EdgeInsets.symmetric(vertical: 10),
+                      // ),
                       Container(
                         color: AppColors.white,
                         child: SizedBox(
@@ -311,7 +311,8 @@ class _FindRideState extends State<FindRide> {
                           height: 50,
                           child: IconButton(
                               onPressed: () {
-                                //Navigator.of(context).pushReplacementNamed('/MyFriends');
+                                Navigator.of(context)
+                                    .pushReplacementNamed('/Friend');
                               },
                               icon: const Icon(Icons.people, size: 35),
                               color: AppColors.blue)),
