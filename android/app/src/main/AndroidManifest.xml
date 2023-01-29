@@ -1,9 +1,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tamuhack">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/> 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
    <application
         android:label="tamuhack"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyDTluOtorcQ8tdQ7t3MV6YUtt7yKbuQKLw"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
