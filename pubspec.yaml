@@ -51,6 +51,9 @@ dependencies:
   material_tag_editor: ^0.1.2
   flutter_chip_tags: ^2.0.2
   firebase_storage: ^11.0.10
+  searchfield: ^0.7.5
+  circular_profile_avatar: ^2.0.5
+  flutter_chip_tags: ^2.0.2
 
 dev_dependencies:
   flutter_test:
