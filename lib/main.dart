@@ -8,7 +8,7 @@ import 'package:tamuhack/screens/rideshare/find_a_ride/screen.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-
+import './screens/find_a_friend/screen.dart';
 
 import 'screens/login/screen.dart';
 
@@ -50,6 +50,7 @@ class MyApp extends StatelessWidget {
           // Login Route for the User
           "/": (context) => const LoginPage(),
           "/Home": (context) => const HomePage(),
+          '/Friend': (context) => const FindAFriend(),
           "/GiveRide": (context) => const GiveRide(),
           "/FindRide": (context) => const FindRide(),
         });

@@ -4,6 +4,7 @@ import 'package:tamuhack/globals/app_colors.dart';
 
 import '../../backend/User/login.dart';
 import '../../backend/User/company_login.dart';
+import 'package:flutter/services.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -158,8 +159,11 @@ class _CompanyLoginInfoState extends State<CompanyLoginInfo> {
                     List tryLogin = await companyLogin(
                         controllerUserSignIn.text, controllerPassSignIn.text);
                     if (tryLogin[0]) {
+                      await rootBundle
+                          .load('images/emptyProfile.jpg')
+                          .then((value) => value.buffer.asUint8List());
                       // ignore: use_build_context_synchronously
-                      Navigator.of(context).pushReplacementNamed('/Home');
+                      Navigator.of(context).pushReplacementNamed('/Friend');
                     }
                   }),
             ),
@@ -250,8 +254,11 @@ class _IndividualLoginInfoState extends State<IndividualLoginInfo> {
                     List tryLogin = await login(
                         controllerUserSignIn.text, controllerPassSignIn.text);
                     if (tryLogin[0]) {
+                      await rootBundle
+                          .load('images/emptyProfile.jpg')
+                          .then((value) => value.buffer.asUint8List());
                       // ignore: use_build_context_synchronously
-                      Navigator.of(context).pushReplacementNamed('/Home');
+                      Navigator.of(context).pushReplacementNamed('/Friend');
                     }
                   }),
             ),
