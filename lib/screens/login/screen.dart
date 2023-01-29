@@ -11,54 +11,64 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.blue,
-      body: Padding(
-        padding: const EdgeInsets.only(left: 43.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              'Konnect',
-              style: TextStyle(
-                  color: AppColors.white,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold),
-            ),
-            //const Divider(),
-            //const SizedBox(width: 120, height: 120, child:Image(image: AssetImage('assets/graphics/logo.png'))),
-            Container(
-              child: const Image(
-                  image: AssetImage('images/logo.png'),
-                  width: 120,
-                  height: 120),
-            ),
-            //const Divider(),
-            Container(
-                alignment: Alignment.center,
-                width: 325,
-                height: 200,
-                decoration: BoxDecoration(
-                    color: const Color.fromRGBO(199, 208, 215, 1.0),
-                    border: Border.all(
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("images/citybg.jpg"),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.white.withOpacity(.30),
+        body: Padding(
+          padding: const EdgeInsets.only(left: 43.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Friendscape',
+                style: TextStyle(
+                    color: AppColors.red,
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold),
+              ),
+              //const Divider(),
+              //const SizedBox(width: 120, height: 120, child:Image(image: AssetImage('assets/graphics/logo.png'))),
+              Container(
+                child: const Image(
+                    image: AssetImage('images/logo.png'),
+                    width: 120,
+                    height: 120),
+              ),
+              //const Divider(),
+              Container(
+                  alignment: Alignment.center,
+                  width: 325,
+                  height: 200,
+                  decoration: BoxDecoration(
                       color: const Color.fromRGBO(199, 208, 215, 1.0),
-                    ),
-                    borderRadius: const BorderRadius.all(Radius.circular(20))),
-                child: const CompanyLoginInfo()),
-            //const Divider(),
-            Container(
-                alignment: Alignment.center,
-                width: 325,
-                height: 200,
-                decoration: BoxDecoration(
-                    color: const Color.fromRGBO(199, 208, 215, 1.0),
-                    border: Border.all(
+                      border: Border.all(
+                        color: const Color.fromRGBO(199, 208, 215, 1.0),
+                      ),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(20))),
+                  child: const CompanyLoginInfo()),
+              //const Divider(),
+              Container(
+                  alignment: Alignment.center,
+                  width: 325,
+                  height: 200,
+                  decoration: BoxDecoration(
                       color: const Color.fromRGBO(199, 208, 215, 1.0),
-                    ),
-                    borderRadius: const BorderRadius.all(Radius.circular(20))),
-                child: const IndividualLoginInfo()),
-          ],
+                      border: Border.all(
+                        color: const Color.fromRGBO(199, 208, 215, 1.0),
+                      ),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(20))),
+                  child: const IndividualLoginInfo()),
+            ],
+          ),
         ),
       ),
     );
