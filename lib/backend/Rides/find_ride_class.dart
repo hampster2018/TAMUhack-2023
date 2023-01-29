@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../globals/user.dart' as user;
 
 void makeRide(String pickUpLocation, String dropOffLocation, String day,
-    int leavingTime, bool friendOnly, bool sameGenderOnly) async {
+    String leavingTime, bool friendOnly, bool sameGenderOnly) async {
   CollectionReference needRides =
       FirebaseFirestore.instance.collection('needRides');
 

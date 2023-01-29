@@ -160,8 +160,8 @@ class _FindRideState extends State<FindRide> {
                         ),
                       ),
                       onPressed: () {
-                        makeRide(pickUp.text, dropOff.text, date.text, timePickup.text, false, false]);
-                        
+                        makeRide(pickUp.text, dropOff.text, date.text,
+                            timePickup.text, false, false);
                       }),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 10),
