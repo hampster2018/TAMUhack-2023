@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tamuhack/globals/app_colors.dart';
 
+import '../../backend/User/login.dart';
+import '../../backend/User/company_login.dart';
+import 'package:flutter/services.dart';
+
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -151,15 +155,16 @@ class _CompanyLoginInfoState extends State<CompanyLoginInfo> {
                   color: Theme.of(context).colorScheme.background,
                   child: const Text("Sign In",
                       style: TextStyle(color: Colors.white)),
-                  onPressed: () {
-                    //async {
-                    Navigator.of(context).pushReplacementNamed('/Home');
-                    /*dynamic result = await _auth.signInWithEmailAndPassword(controllerUserSignIn.text, controllerPassSignIn.text);
-                    if(result == null){
-                      print("error: user not found");
-                    } else {
-                      Navigator.of(context).pushReplacementNamed('/Main');
-                    }*/
+                  onPressed: () async {
+                    List tryLogin = await companyLogin(
+                        controllerUserSignIn.text, controllerPassSignIn.text);
+                    if (tryLogin[0]) {
+                      await rootBundle
+                          .load('images/emptyProfile.jpg')
+                          .then((value) => value.buffer.asUint8List());
+                      // ignore: use_build_context_synchronously
+                      Navigator.of(context).pushReplacementNamed('/Friend');
+                    }
                   }),
             ),
           ]),
@@ -245,15 +250,16 @@ class _IndividualLoginInfoState extends State<IndividualLoginInfo> {
                   color: Theme.of(context).colorScheme.background,
                   child: const Text("Sign In",
                       style: TextStyle(color: Colors.white)),
-                  onPressed: () {
-                    //async {
-                    Navigator.of(context).pushReplacementNamed('/Home');
-                    /*dynamic result = await _auth.signInWithEmailAndPassword(controllerUserSignIn.text, controllerPassSignIn.text);
-                    if(result == null){
-                      print("error: user not found");
-                    } else {
-                      Navigator.of(context).pushReplacementNamed('/Main');
-                    }*/
+                  onPressed: () async {
+                    List tryLogin = await login(
+                        controllerUserSignIn.text, controllerPassSignIn.text);
+                    if (tryLogin[0]) {
+                      await rootBundle
+                          .load('images/emptyProfile.jpg')
+                          .then((value) => value.buffer.asUint8List());
+                      // ignore: use_build_context_synchronously
+                      Navigator.of(context).pushReplacementNamed('/Friend');
+                    }
                   }),
             ),
           ]),

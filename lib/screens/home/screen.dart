@@ -275,6 +275,47 @@ class _HomePageState extends State<HomePage> {
                         color: AppColors.white)),
               ],
             ),
+          padding: const EdgeInsets.only(bottom: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pushReplacementNamed('/Home');
+                      },
+                      icon: const Icon(Icons.home))),
+              const SizedBox(width: 5),
+              SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pushReplacementNamed('/');
+                        //Navigator.of(context).pushReplacementNamed('/Rideshare');
+                      },
+                      icon: const Icon(Icons.car_crash))),
+              const SizedBox(width: 5),
+              SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: IconButton(
+                      onPressed: () {
+                        //Navigator.of(context).pushReplacementNamed('/FindFriend');
+                      },
+                      icon: const Icon(Icons.people))),
+              const SizedBox(width: 5),
+              SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: IconButton(
+                      onPressed: () {
+                        //Navigator.of(context).pushReplacementNamed('/Profile');
+                      },
+                      icon: const Icon(Icons.person))),
+            ],
           ),
         ));
   }
