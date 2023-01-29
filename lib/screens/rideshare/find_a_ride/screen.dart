@@ -29,7 +29,7 @@ class _FindRideState extends State<FindRide> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: AppColors.background,
+          backgroundColor: AppColors.blue,
           centerTitle: true,
           title: const Text("Find Ride"),
           leading: IconButton(

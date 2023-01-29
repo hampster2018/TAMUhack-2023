@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:tamuhack/globals/app_colors.dart';
 
 class GiveRide extends StatefulWidget {
@@ -17,6 +18,18 @@ class _GiveRideState extends State<GiveRide> {
     'Friday',
   ];
 
+  var passengers = [
+    "Manish",
+    "Eric",
+    "Shamitha",
+    "Avani",
+    "Sandeep",
+    "Reshvar",
+    "Rohit",
+    "Rohan",
+    "Sahil"
+  ];
+
   String dropdownvalue = 'Choose a day';
   String timevalue = 'Choose a time slot';
 
@@ -29,7 +42,7 @@ class _GiveRideState extends State<GiveRide> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: AppColors.background,
+          backgroundColor: AppColors.blue,
           centerTitle: true,
           title: const Text("Give Ride"),
           leading: IconButton(
@@ -119,40 +132,20 @@ class _GiveRideState extends State<GiveRide> {
                           value: 'Choose a time slot',
                         ),
                         DropdownMenuItem<String>(
-                          child: Text('6-7 AM'),
-                          value: 'Monday',
+                          child: Text('< 5 min'),
+                          value: 'Very Short',
                         ),
                         DropdownMenuItem<String>(
-                          child: Text('7-8 AM'),
-                          value: 'Tuesday',
+                          child: Text('5-10 min'),
+                          value: 'Short',
                         ),
                         DropdownMenuItem<String>(
-                          child: Text('8-9 AM'),
-                          value: 'Wednesday',
+                          child: Text('10-15 min'),
+                          value: 'Medium',
                         ),
                         DropdownMenuItem<String>(
-                          child: Text('9-10 AM'),
-                          value: 'Friday',
-                        ),
-                        DropdownMenuItem<String>(
-                          child: Text('10-11 AM'),
-                          value: 'Friday',
-                        ),
-                        DropdownMenuItem<String>(
-                          child: Text('11 AM-12 PM'),
-                          value: 'Friday',
-                        ),
-                        DropdownMenuItem<String>(
-                          child: Text('12-1 PM'),
-                          value: 'Friday',
-                        ),
-                        DropdownMenuItem<String>(
-                          child: Text('1-2 PM'),
-                          value: 'Friday',
-                        ),
-                        DropdownMenuItem<String>(
-                          child: Text('2-3 PM'),
-                          value: 'Thursday',
+                          child: Text('> 15 min'),
+                          value: 'Long ass drive',
                         ),
                       ],
                       onChanged: (String? selectedValue) {
@@ -165,7 +158,43 @@ class _GiveRideState extends State<GiveRide> {
                     ),
                   ),
                   const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                  ),
+                  CupertinoButton(
+                      color: AppColors.red,
+                      child: Text(
+                        "Submit",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          height: sHeight * 0.0015,
+                          fontSize: 26.0,
+                          fontFamily: 'Nunito',
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      onPressed: () {}),
+                  const Padding(
                     padding: EdgeInsets.symmetric(vertical: 30),
+                  ),
+                  Expanded(
+                      flex: 1,
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Wrap(
+                          alignment: WrapAlignment.spaceEvenly,
+                          spacing: 8.0,
+                          runSpacing: 8.0,
+                          children: passengers
+                              .map<Widget>((word) => Container(
+                                  color: Colors.blue,
+                                  width: sWidth / 2.4,
+                                  height: 100,
+                                  child: Text(word)))
+                              .toList(),
+                        ),
+                      )),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10),
                   ),
                 ],
               ),
