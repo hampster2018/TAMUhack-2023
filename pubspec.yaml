@@ -38,8 +38,19 @@ dependencies:
   cloud_firestore: ^4.3.1
   firebase_core: ^2.4.1
   firebase_auth: ^4.2.5
-  google_maps_flutter: ^2.2.3
   flutter_google_places: ^0.3.0
+  syncfusion_flutter_maps: ^20.4.44
+  location: ^4.4.0
+  geolocator: ^9.0.2
+  google_maps_flutter: ^2.2.3
+  geocoding: ^2.0.5
+  user_profile_avatar: ^0.1.2
+  circular_profile_avatar: ^2.0.5
+  flutter_form_bloc: ^0.30.1
+  flutter_tagging: ^3.0.0
+  material_tag_editor: ^0.1.2
+  flutter_chip_tags: ^2.0.2
+  firebase_storage: ^11.0.10
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +84,12 @@ flutter:
     - images/librarygardens.jpg
     - images/olsen.jpg
     - images/starscinema.jpg
+    - images/emptyProfile.jpg
+    - images/logo.png
+    - images/citybg.jpg
+    - images/example1.jpg
+    - images/example.jpg
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
