@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chip_tags/flutter_chip_tags.dart';
 import 'package:tamuhack/globals/app_colors.dart';
 import 'package:user_profile_avatar/user_profile_avatar.dart';
+import '../../globals/user.dart' as user;
+import '../../backend/User/interest.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -12,21 +14,15 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final List<String> _myInterests = [];
-  //List<String> interests = ['Cooking', 'Hiking'];
+  final List<String> _myInterests = user.interest;
 
-  @override
-  void setState(VoidCallback _myInterests) {
-    // TODO: implement setState
-    super.setState(_myInterests);
+  void addInterest(String interest) {
+    _myInterests.add(interest);
+    updateInterest(interest);
+    setState(() {
+      _myInterests.add(interest);
+    });
   }
-
-  /*@override
-  void initState() {
-    super.initState();
-    _name = TextEditingController();
-    _nameController = TextEditingController();
-  }*/
 
   @override
   Widget build(BuildContext context) {
