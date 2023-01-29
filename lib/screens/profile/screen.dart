@@ -2,7 +2,6 @@ import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chip_tags/flutter_chip_tags.dart';
 import 'package:tamuhack/globals/app_colors.dart';
-import 'package:user_profile_avatar/user_profile_avatar.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
