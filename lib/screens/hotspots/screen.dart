@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tamuhack/globals/app_colors.dart';
 
 class HotSpots extends StatelessWidget {
   const HotSpots({Key? key}) : super(key: key);
@@ -17,6 +18,7 @@ class HotSpots extends StatelessWidget {
     );
   }
 }
+
 class GFG extends StatefulWidget {
   const GFG({Key? key}) : super(key: key);
 
@@ -27,279 +29,330 @@ class GFG extends StatefulWidget {
 class _GFGState extends State<GFG> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Hotspots Near You",
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("images/citybg.jpg"),
+          fit: BoxFit.cover,
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              // method to show the search bar
-              showSearch(
-                  context: context,
-                  // delegate to customize the search bar
-                  delegate: CustomSearchDelegate());
-            },
-            icon: const Icon(Icons.search),
-          )
-        ],
       ),
-      body: Column(
-        children: <Widget> [
-          // Container(child: Row(
-          //   children: CustomSearchDelegate(),
-          //   onPressed: () {
-          //     showSearch(
-          //       context: context,
-          //       delegate: CustomSearchDelegate()
-          //     );
-          //   },
-          // )),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 140,
-                  height: 140,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blueAccent,
-                        padding: const EdgeInsets.all(10)
-                      ),
-
-                    child: Column(
-                      children: [
-                        Container(
-                         child: const Text('Kyle Field'),
-                        ),
-                        const SizedBox(height: 5),
-                        Container(
-                          child: const Text('0.3 mi away', style: TextStyle(fontSize: 10),),
-                        ),
-                        const SizedBox(height: 10),
-                        const Image(image: AssetImage('images/kylefield.png'))
-                      ]
+      child: Scaffold(
+          backgroundColor: AppColors.white.withOpacity(.20),
+          appBar: AppBar(
+            backgroundColor: AppColors.white.withOpacity(.85),
+            title: const Text(
+              "Hotspots Near You",
+              style: TextStyle(color: Color.fromRGBO(182, 31, 35, 1.0)),
             ),
-                      onPressed: (
-                          ) {
-                       // Navigator.of(context).pushReplacementNamed('/Home');
-                        //Navigator.of(context).pushReplacementNamed('/Hotspots');
-                      }),
-                ),
-                const SizedBox(width: 50),
-                SizedBox(
-                  width: 140,
-                  height: 140,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blueAccent,
-                          padding: const EdgeInsets.all(10)
-                      ),
-
-                      child: Column(
-                          children: const [
+            actions: [
+              IconButton(
+                onPressed: () {
+                  // method to show the search bar
+                  showSearch(
+                      context: context,
+                      // delegate to customize the search bar
+                      delegate: CustomSearchDelegate());
+                },
+                icon: const Icon(Icons.search,
+                    color: Color.fromRGBO(182, 31, 35, 1.0)),
+              )
+            ],
+          ),
+          body: Column(
+            children: <Widget>[
+              // Container(child: Row(
+              //   children: CustomSearchDelegate(),
+              //   onPressed: () {
+              //     showSearch(
+              //       context: context,
+              //       delegate: CustomSearchDelegate()
+              //     );
+              //   },
+              // )),
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 140,
+                      height: 140,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.blue,
+                              padding: const EdgeInsets.all(10)),
+                          child: Column(children: [
+                            Container(
+                              child: const Text('Kyle Field'),
+                            ),
+                            Divider(height: 3),
+                            Container(
+                              child: const Text(
+                                '0.3 mi away',
+                                style: TextStyle(fontSize: 10),
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            const Image(
+                                image: AssetImage('images/kylefield.png'))
+                          ]),
+                          onPressed: () {
+                            // Navigator.of(context).pushReplacementNamed('/Home');
+                            //Navigator.of(context).pushReplacementNamed('/Hotspots');
+                          }),
+                    ),
+                    const SizedBox(width: 50),
+                    SizedBox(
+                      width: 140,
+                      height: 140,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.blue,
+                              padding: const EdgeInsets.all(10)),
+                          child: Column(children: const [
                             Text('Bonfire Memorial'),
-                            //SizedBox(height: 5),
+                            Divider(height: 3),
                             Text('0.8 mi away', style: TextStyle(fontSize: 10)),
                             SizedBox(height: 10),
-                            Image(image: AssetImage('images/bonfirememorial.jpg'))
-                          ]
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pushReplacementNamed('/Hotspots');
-                      }),
+                            Image(
+                                image: AssetImage('images/bonfirememorial.jpg'))
+                          ]),
+                          onPressed: () {
+                            Navigator.of(context)
+                                .pushReplacementNamed('/Hotspots');
+                          }),
+                    ),
+                  ],
                 ),
-
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 140,
-                  height: 140,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blueAccent,
-                          padding: const EdgeInsets.all(10)
-                      ),
-
-                      child: Column(
-                          children: [
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 140,
+                      height: 140,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.blue,
+                              padding: const EdgeInsets.all(10)),
+                          child: Column(children: [
                             Container(
                               child: const Text('Bush Library'),
                             ),
                             const SizedBox(height: 3),
                             Container(
-                              child: const Text('1.9 mi away', style: TextStyle(fontSize: 10),),
+                              child: const Text(
+                                '1.9 mi away',
+                                style: TextStyle(fontSize: 10),
+                              ),
                             ),
                             const SizedBox(height: 9),
                             const Image(image: AssetImage('images/gwbush.jpg'))
-
-                      ]),
-                      onPressed: (
-                          ) {
-                        // Navigator.of(context).pushReplacementNamed('/Home');
-                        //Navigator.of(context).pushReplacementNamed('/Hotspots');
-                      }),
-                ),
-                const SizedBox(width: 50),
-                SizedBox(
-                  width: 140,
-                  height: 140,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blueAccent,
-                          padding: const EdgeInsets.all(10)
-                      ),
-
-                      child: Column(
-                          children: const [
+                          ]),
+                          onPressed: () {
+                            // Navigator.of(context).pushReplacementNamed('/Home');
+                            //Navigator.of(context).pushReplacementNamed('/Hotspots');
+                          }),
+                    ),
+                    const SizedBox(width: 50),
+                    SizedBox(
+                      width: 140,
+                      height: 140,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.blue,
+                              padding: const EdgeInsets.all(10)),
+                          child: Column(children: const [
                             Text('Library Gardens'),
-                            //SizedBox(height: 5),
+                            Divider(height: 3),
                             Text('2.1 mi away', style: TextStyle(fontSize: 10)),
                             SizedBox(height: 10),
-                            Image(image: AssetImage('images/librarygardens.jpg'))
-                          ]
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pushReplacementNamed('/Hotspots');
-                      }),
+                            Image(
+                                image: AssetImage('images/librarygardens.jpg'))
+                          ]),
+                          onPressed: () {
+                            Navigator.of(context)
+                                .pushReplacementNamed('/Hotspots');
+                          }),
+                    ),
+                  ],
                 ),
-
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 140,
-                  height: 140,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blueAccent,
-                          padding: const EdgeInsets.all(10)
-                      ),
-
-                      child: Column(
-                          children: [
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 140,
+                      height: 140,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.blue,
+                              padding: const EdgeInsets.all(10)),
+                          child: Column(children: [
                             Container(
                               child: const Text('Olsen Field'),
                             ),
-                            const SizedBox(height: 5),
+                            Divider(height: 3),
                             Container(
-                              child: const Text('1.1 mi away', style: TextStyle(fontSize: 10),),
+                              child: const Text(
+                                '1.1 mi away',
+                                style: TextStyle(fontSize: 10),
+                              ),
                             ),
                             const SizedBox(height: 10),
                             const Image(image: AssetImage('images/olsen.jpg'))
-                          ]
-                      ),
-                      onPressed: (
-                          ) {
-                        // Navigator.of(context).pushReplacementNamed('/Home');
-                        //Navigator.of(context).pushReplacementNamed('/Hotspots');
-                      }),
-                ),
-                const SizedBox(width: 50),
-                SizedBox(
-                  width: 140,
-                  height: 140,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blueAccent,
-                          padding: const EdgeInsets.all(10)
-                      ),
-
-                      child: Column(
-                          children: const [
+                          ]),
+                          onPressed: () {
+                            // Navigator.of(context).pushReplacementNamed('/Home');
+                            //Navigator.of(context).pushReplacementNamed('/Hotspots');
+                          }),
+                    ),
+                    const SizedBox(width: 50),
+                    SizedBox(
+                      width: 140,
+                      height: 140,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.blue,
+                              padding: const EdgeInsets.all(10)),
+                          child: Column(children: const [
                             Text('Star Cinema'),
-                            //SizedBox(height: 5),
+                            Divider(height: 3),
                             Text('1.2 mi away', style: TextStyle(fontSize: 10)),
                             SizedBox(height: 10),
                             Image(image: AssetImage('images/starscinema.jpg'))
-                          ]
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pushReplacementNamed('/Hotspots');
-                      }),
+                          ]),
+                          onPressed: () {
+                            Navigator.of(context)
+                                .pushReplacementNamed('/Hotspots');
+                          }),
+                    ),
+                  ],
                 ),
-
-              ],
-            ),
+              ),
+              // Padding(
+              //   padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.center,
+              //     children: [
+              //       SizedBox(
+              //         width: 140,
+              //         height: 140,
+              //         child: ElevatedButton(
+              //             style: ElevatedButton.styleFrom(
+              //                 backgroundColor: Colors.blueAccent,
+              //                 padding: const EdgeInsets.all(10)
+              //             ),
+              //
+              //             child: Column(
+              //                 children: [
+              //                   Container(
+              //                     child: const Text('Kyle Field'),
+              //                   ),
+              //                   const SizedBox(height: 5),
+              //                   Container(
+              //                     child: const Text('0.5 mi away', style: TextStyle(fontSize: 10),),
+              //                   ),
+              //                   const SizedBox(height: 10),
+              //                   const Image(image: AssetImage('images/kylefield.png'))
+              //                 ]
+              //             ),
+              //             onPressed: (
+              //                 ) {
+              //               // Navigator.of(context).pushReplacementNamed('/Home');
+              //               //Navigator.of(context).pushReplacementNamed('/Hotspots');
+              //             }),
+              //       ),
+              //       const SizedBox(width: 50),
+              //       SizedBox(
+              //         width: 140,
+              //         height: 140,
+              //         child: ElevatedButton(
+              //             style: ElevatedButton.styleFrom(
+              //                 backgroundColor: Colors.blueAccent,
+              //                 padding: const EdgeInsets.all(10)
+              //             ),
+              //
+              //             child: Column(
+              //                 children: const [
+              //                   Text('Bonfire Memorial'),
+              //                   //SizedBox(height: 5),
+              //                   Text('1.2 mi away', style: TextStyle(fontSize: 10)),
+              //                   SizedBox(height: 10),
+              //                   Image(image: AssetImage('images/bonfirememorial.jpg'))
+              //                 ]
+              //             ),
+              //             onPressed: () {
+              //               Navigator.of(context).pushReplacementNamed('/Hotspots');
+              //             }),
+              //       ),
+              //
+              //     ],
+              //   ),
+              // ),
+            ], //children of initial column
           ),
-          // Padding(
-          //   padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     children: [
-          //       SizedBox(
-          //         width: 140,
-          //         height: 140,
-          //         child: ElevatedButton(
-          //             style: ElevatedButton.styleFrom(
-          //                 backgroundColor: Colors.blueAccent,
-          //                 padding: const EdgeInsets.all(10)
-          //             ),
-          //
-          //             child: Column(
-          //                 children: [
-          //                   Container(
-          //                     child: const Text('Kyle Field'),
-          //                   ),
-          //                   const SizedBox(height: 5),
-          //                   Container(
-          //                     child: const Text('0.5 mi away', style: TextStyle(fontSize: 10),),
-          //                   ),
-          //                   const SizedBox(height: 10),
-          //                   const Image(image: AssetImage('images/kylefield.png'))
-          //                 ]
-          //             ),
-          //             onPressed: (
-          //                 ) {
-          //               // Navigator.of(context).pushReplacementNamed('/Home');
-          //               //Navigator.of(context).pushReplacementNamed('/Hotspots');
-          //             }),
-          //       ),
-          //       const SizedBox(width: 50),
-          //       SizedBox(
-          //         width: 140,
-          //         height: 140,
-          //         child: ElevatedButton(
-          //             style: ElevatedButton.styleFrom(
-          //                 backgroundColor: Colors.blueAccent,
-          //                 padding: const EdgeInsets.all(10)
-          //             ),
-          //
-          //             child: Column(
-          //                 children: const [
-          //                   Text('Bonfire Memorial'),
-          //                   //SizedBox(height: 5),
-          //                   Text('1.2 mi away', style: TextStyle(fontSize: 10)),
-          //                   SizedBox(height: 10),
-          //                   Image(image: AssetImage('images/bonfirememorial.jpg'))
-          //                 ]
-          //             ),
-          //             onPressed: () {
-          //               Navigator.of(context).pushReplacementNamed('/Hotspots');
-          //             }),
-          //       ),
-          //
-          //     ],
-          //   ),
-          // ),
-        ], //children of initial column
-      ),
 
-      //  ),
+          //  ),
+          bottomNavigationBar: Padding(
+              padding: const EdgeInsets.only(bottom: 0),
+              child: Container(
+                height: 80,
+                color: AppColors.white.withOpacity(.85),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: IconButton(
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushReplacementNamed('/Home');
+                            },
+                            icon: const Icon(Icons.home, size: 35),
+                            color: AppColors.blue)),
+                    const Divider(),
+                    SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: IconButton(
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushReplacementNamed('/FindRide');
+                              //Navigator.of(context).pushReplacementNamed('/Rideshare');
+                            },
+                            icon: const Icon(Icons.directions_car, size: 35),
+                            color: AppColors.blue)),
+                    const Divider(),
+                    SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: IconButton(
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushReplacementNamed('/Friend');
+                            },
+                            icon: const Icon(Icons.people, size: 35),
+                            color: AppColors.blue)),
+                    const Divider(),
+                    SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: IconButton(
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushReplacementNamed('/Profile');
+                            },
+                            icon: const Icon(Icons.person, size: 35),
+                            color: AppColors.blue)),
+                  ],
+                ),
+              ))),
     );
   }
 }

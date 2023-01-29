@@ -166,7 +166,8 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                         onPressed: () {
-                          //Navigator.of(context).pushReplacementNamed('/Hotspots');
+                          Navigator.of(context)
+                              .pushReplacementNamed('/Hotspots');
                         }),
                   ),
                   SizedBox(width: 10),
@@ -214,7 +215,7 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                         onPressed: () {
-                          //Navigator.of(context).pushReplacementNamed('/Hotspots');
+                          Navigator.of(context).pushReplacementNamed('/Friend');
                         }),
                   ),
                 ],
@@ -242,12 +243,12 @@ class _HomePageState extends State<HomePage> {
                   ),
                   //color: AppColors.steelblue,
                   width: 360,
-                  height: 400,
+                  height: 360,
                   child: GoogleMap(
                     onMapCreated: _onMapCreated,
                     initialCameraPosition: CameraPosition(
                       target: _center,
-                      zoom: 13.0,
+                      zoom: 12.5,
                     ),
                     markers: Set<Marker>.of(_markers),
                     mapType: MapType.normal,
