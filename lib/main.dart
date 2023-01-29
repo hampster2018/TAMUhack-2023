@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamuhack/screens/find_a_friend/screen.dart';
 import 'package:tamuhack/screens/home/screen.dart';
+import 'package:tamuhack/screens/profile/screen.dart';
 
 import 'globals/app_colors.dart';
 import 'screens/login/screen.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
           "/": (context) => const LoginPage(),
           "/Home": (context) => const HomePage(),
           "/FindFriend": (context) => FindFriendPage(),
+          "/Profile": (context) => const ProfilePage(),
         });
   }
 }

@@ -163,7 +163,7 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                         onPressed: () {
-                          //Navigator.of(context).pushReplacementNamed('/Hotspots');
+                          //Navigator.of(context).pushReplacementNamed('/Rideshare');
                         }),
                   ),
                   SizedBox(width: 15),
@@ -268,7 +268,8 @@ class _HomePageState extends State<HomePage> {
                     height: 50,
                     child: IconButton(
                         onPressed: () {
-                          //Navigator.of(context).pushReplacementNamed('/Profile');
+                          Navigator.of(context)
+                              .pushReplacementNamed('/Profile');
                         },
                         icon: Icon(Icons.person),
                         color: AppColors.white)),
