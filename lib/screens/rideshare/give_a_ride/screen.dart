@@ -18,22 +18,66 @@ class _GiveRideState extends State<GiveRide> {
     'Friday',
   ];
 
-  var passengers = [
-    "Manish",
-    "Eric",
-    "Shamitha",
-    "Avani",
-    "Sandeep",
-    "Reshvar",
-    "Rohit",
-    "Rohan",
-    "Sahil"
-  ];
+  var passengers = [];
 
   String dropdownvalue = 'Choose a day';
   String timevalue = 'Choose a time slot';
 
+  var dayVisibility = false;
+  var timeVisibility = false;
+  var resultVisibility = false;
+
   final destination = TextEditingController();
+
+  List<String> _selectedDays = [];
+  List<String> _selectedTimes = [];
+
+  void _showDaySelect() async {
+    // a list of selectable items
+    // these items can be hard-coded or dynamically fetched from a database/API
+    final List<String> days = [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday'
+    ];
+
+    final List<String>? results = await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return MultiSelect(items: days);
+      },
+    );
+
+    // Update UI
+    if (results != null) {
+      setState(() {
+        _selectedDays = results;
+      });
+    }
+  }
+
+  void _showTimeSelect() async {
+    // a list of selectable items
+    // these items can be hard-coded or dynamically fetched from a database/API
+    final List<String> times = ['< 5 min', '5-10 min', '10-15 min', '> 15 min'];
+
+    final List<String>? results = await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return MultiSelect(items: times);
+      },
+    );
+
+    // Update UI
+    if (results != null) {
+      setState(() {
+        _selectedTimes = results;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +124,10 @@ class _GiveRideState extends State<GiveRide> {
                   ),
                   SizedBox(
                     width: sWidth / 1.2,
-                    child: DropdownButtonFormField(
+                    child: ElevatedButton(
+                      onPressed: _showDaySelect,
+                      child: const Text('Select Your Days to Drive'),
+                    ), /*DropdownButtonFormField(
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                           //<-- SEE HERE
@@ -147,14 +194,24 @@ class _GiveRideState extends State<GiveRide> {
                           });
                         }
                       },
-                    ),
+                    ),*/
+                  ),
+                  Wrap(
+                    children: _selectedDays
+                        .map((e) => Chip(
+                              label: Text(e),
+                            ))
+                        .toList(),
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 10),
                   ),
                   SizedBox(
                     width: sWidth / 1.2,
-                    child: DropdownButtonFormField(
+                    child: ElevatedButton(
+                      onPressed: _showTimeSelect,
+                      child: const Text('Select Your Time Rides'),
+                    ), /*DropdownButtonFormField(
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                           //<-- SEE HERE
@@ -214,7 +271,14 @@ class _GiveRideState extends State<GiveRide> {
                           });
                         }
                       },
-                    ),
+                    ),*/
+                  ),
+                  Wrap(
+                    children: _selectedTimes
+                        .map((e) => Chip(
+                              label: Text(e),
+                            ))
+                        .toList(),
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 10),
@@ -231,27 +295,79 @@ class _GiveRideState extends State<GiveRide> {
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      onPressed: () {}),
+                      onPressed: () {
+                        setState(() {
+                          if (_selectedDays.isNotEmpty &&
+                              _selectedTimes.isNotEmpty) {
+                            dayVisibility = false;
+                            timeVisibility = false;
+                            resultVisibility = true;
+                            passengers = [
+                              "Manish",
+                              "Eric",
+                              "Shamitha",
+                              "Avani",
+                              "Sandeep",
+                              "Reshvar",
+                              "Rohit",
+                              "Rohan",
+                              "Sahil"
+                            ];
+                          } else {
+                            resultVisibility = false;
+                            if (_selectedDays.isEmpty)
+                              dayVisibility = true;
+                            else
+                              dayVisibility = false;
+                            if (_selectedTimes.isEmpty)
+                              timeVisibility = true;
+                            else
+                              timeVisibility = false;
+                          }
+                        });
+                      }),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 10),
                   ),
-                  Expanded(
-                      flex: 1,
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: Wrap(
-                          alignment: WrapAlignment.spaceEvenly,
-                          spacing: 8.0,
-                          runSpacing: 8.0,
-                          children: passengers
-                              .map<Widget>((word) => Container(
-                                  color: Colors.blue,
-                                  width: sWidth / 2.4,
-                                  height: 100,
-                                  child: Text(word)))
-                              .toList(),
-                        ),
-                      )),
+                  Visibility(
+                    visible: dayVisibility,
+                    child: Text(
+                      "Please choose a day",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: AppColors.red),
+                    ),
+                  ),
+                  /*const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                  ),*/
+                  Visibility(
+                    visible: timeVisibility,
+                    child: Text(
+                      "Please choose a time amount",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: AppColors.red),
+                    ),
+                  ),
+                  Visibility(
+                    visible: resultVisibility,
+                    child: Expanded(
+                        flex: 1,
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.vertical,
+                          child: Wrap(
+                            alignment: WrapAlignment.spaceEvenly,
+                            spacing: 8.0,
+                            runSpacing: 8.0,
+                            children: passengers
+                                .map<Widget>((word) => Container(
+                                    color: Colors.blue,
+                                    width: sWidth / 2.4,
+                                    height: 100,
+                                    child: Text(word)))
+                                .toList(),
+                          ),
+                        )),
+                  ),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 10),
                   ),
@@ -261,6 +377,71 @@ class _GiveRideState extends State<GiveRide> {
           ),
         )),
       ),
+    );
+  }
+}
+
+// Multi Select widget
+// This widget is reusable
+class MultiSelect extends StatefulWidget {
+  final List<String> items;
+  const MultiSelect({Key? key, required this.items}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _MultiSelectState();
+}
+
+class _MultiSelectState extends State<MultiSelect> {
+  // this variable holds the selected items
+  final List<String> _selectedItems = [];
+
+// This function is triggered when a checkbox is checked or unchecked
+  void _itemChange(String itemValue, bool isSelected) {
+    setState(() {
+      if (isSelected) {
+        _selectedItems.add(itemValue);
+      } else {
+        _selectedItems.remove(itemValue);
+      }
+    });
+  }
+
+  // this function is called when the Cancel button is pressed
+  void _cancel() {
+    Navigator.pop(context);
+  }
+
+// this function is called when the Submit button is tapped
+  void _submit() {
+    Navigator.pop(context, _selectedItems);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Select Topics'),
+      content: SingleChildScrollView(
+        child: ListBody(
+          children: widget.items
+              .map((item) => CheckboxListTile(
+                    value: _selectedItems.contains(item),
+                    title: Text(item),
+                    controlAffinity: ListTileControlAffinity.leading,
+                    onChanged: (isChecked) => _itemChange(item, isChecked!),
+                  ))
+              .toList(),
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: _cancel,
+          child: const Text('Cancel'),
+        ),
+        ElevatedButton(
+          onPressed: _submit,
+          child: const Text('Submit'),
+        ),
+      ],
     );
   }
 }
