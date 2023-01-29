@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tamuhack/globals/app_colors.dart';
+// import 'package:tamuhack/screens/hotspots/nearby_places_screen.dart';
+// import 'package:tamuhack/screens/hotspots/screen.dart';
 
 import '../../backend/User/login.dart';
 import '../../backend/User/company_login.dart';
