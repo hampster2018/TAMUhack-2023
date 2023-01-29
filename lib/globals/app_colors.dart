@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 
 class AppColors {
-  // TODO: change colors
   // main headings color
   static Color blue = const Color.fromRGBO(13, 115, 177, 1.0);
   // red for accent colors
