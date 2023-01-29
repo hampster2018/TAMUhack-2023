@@ -296,7 +296,8 @@ class _HomePageState extends State<HomePage> {
                         height: 50,
                         child: IconButton(
                             onPressed: () {
-                              //Navigator.of(context).pushReplacementNamed('/MyFriends');
+                              Navigator.of(context)
+                                  .pushReplacementNamed('/Friend');
                             },
                             icon: const Icon(Icons.people, size: 35),
                             color: AppColors.blue)),

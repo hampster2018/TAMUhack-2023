@@ -18,6 +18,7 @@ class _FindAFriend extends State<FindAFriend> {
   initState() {
     super.initState();
 
+    log("here");
     getFriends().then((result) {
       log(result.toString());
       setState(() {
