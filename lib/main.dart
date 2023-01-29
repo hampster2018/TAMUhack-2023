@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamuhack/screens/home/screen.dart';
-import 'package:tamuhack/screens/hotspots/nearby_places_screen.dart';
+import 'package:tamuhack/screens/hotspots/screen.dart';
+//import 'package:tamuhack/screens/hotspots/nearby_places_screen.dart';
 
 import 'screens/login/screen.dart';
 
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
           // Login Route for the User
           "/": (context) => const LoginPage(),
           "/Home": (context) => const HomePage(),
-          "/NearByPlacesScreen": (context) => NearByPlacesScreen(),
+          "/Hotspots": (context) => const HotSpots(),
         });
   }
 }

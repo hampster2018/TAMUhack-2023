@@ -1,16 +1,10 @@
-import 'dart:convert';
+//import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tamuhack/screens/hotspots/nearby_places_screen.dart';
 
-/*void main() {
-  runApp(const MyApp());
-}*/
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+class HotSpots extends StatelessWidget {
+  const HotSpots({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: GFG(),
+      home: const GFG(),
     );
   }
 }
@@ -52,86 +46,256 @@ class _GFGState extends State<GFG> {
         ],
       ),
       body: Column(
-        children: [
+        children: <Widget> [
+          // Container(child: Row(
+          //   children: CustomSearchDelegate(),
+          //   onPressed: () {
+          //     showSearch(
+          //       context: context,
+          //       delegate: CustomSearchDelegate()
+          //     );
+          //   },
+          // )),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: 100,
-                  height: 100,
+                  width: 140,
+                  height: 140,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blueAccent,
-                        padding: EdgeInsets.all(10)
+                        padding: const EdgeInsets.all(10)
                       ),
 
                     child: Column(
                       children: [
                         Container(
-                         child: Text('Kyle Field'),
+                         child: const Text('Kyle Field'),
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         Container(
-                          child: Text('0.5 mi away', style: TextStyle(fontSize: 10),),
+                          child: const Text('0.3 mi away', style: TextStyle(fontSize: 10),),
                         ),
-                        SizedBox(height: 10),
-                        Container(
-                            child: Image(image: AssetImage('images/kylefield.png'))
-                        )
+                        const SizedBox(height: 10),
+                        const Image(image: AssetImage('images/kylefield.png'))
                       ]
-
-
             ),
                       onPressed: (
                           ) {
-                        Navigator.of(context).pushReplacementNamed('/Home');
+                       // Navigator.of(context).pushReplacementNamed('/Home');
                         //Navigator.of(context).pushReplacementNamed('/Hotspots');
                       }),
                 ),
-                SizedBox(width: 20),
+                const SizedBox(width: 50),
                 SizedBox(
-                  width: 100,
-                  height: 100,
+                  width: 140,
+                  height: 140,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blueAccent,
-                          padding: EdgeInsets.all(10)
+                          padding: const EdgeInsets.all(10)
+                      ),
+
+                      child: Column(
+                          children: const [
+                            Text('Bonfire Memorial'),
+                            //SizedBox(height: 5),
+                            Text('0.8 mi away', style: TextStyle(fontSize: 10)),
+                            SizedBox(height: 10),
+                            Image(image: AssetImage('images/bonfirememorial.jpg'))
+                          ]
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pushReplacementNamed('/Hotspots');
+                      }),
+                ),
+
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 140,
+                  height: 140,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blueAccent,
+                          padding: const EdgeInsets.all(10)
                       ),
 
                       child: Column(
                           children: [
                             Container(
-                              child: Text('Bonfire Memorial'),
+                              child: const Text('Bush Library'),
                             ),
-                            SizedBox(height: 5),
+                            const SizedBox(height: 3),
                             Container(
-                              child: Text('1.2 mi away', style: TextStyle(fontSize: 10),),
+                              child: const Text('1.9 mi away', style: TextStyle(fontSize: 10),),
                             ),
-                            SizedBox(height: 10),
-                            Container(
-                                child: Image(image: AssetImage('images/bonfirememorial.jpg'))
-                            )
-                          ]
+                            const SizedBox(height: 9),
+                            const Image(image: AssetImage('images/gwbush.jpg'))
 
-
-                      ),
-                      onPressed: () {
+                      ]),
+                      onPressed: (
+                          ) {
+                        // Navigator.of(context).pushReplacementNamed('/Home');
                         //Navigator.of(context).pushReplacementNamed('/Hotspots');
                       }),
                 ),
-                CupertinoButton(
-                  child: const Text("Nearby Places"),
-                  onPressed: (){
-                  // Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
-                  //   return const NearByPlacesScreen();
-                  Navigator.of(context).pushReplacementNamed('/Home');
-                  },
+                const SizedBox(width: 50),
+                SizedBox(
+                  width: 140,
+                  height: 140,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blueAccent,
+                          padding: const EdgeInsets.all(10)
+                      ),
+
+                      child: Column(
+                          children: const [
+                            Text('Library Gardens'),
+                            //SizedBox(height: 5),
+                            Text('2.1 mi away', style: TextStyle(fontSize: 10)),
+                            SizedBox(height: 10),
+                            Image(image: AssetImage('images/librarygardens.jpg'))
+                          ]
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pushReplacementNamed('/Hotspots');
+                      }),
                 ),
+
               ],
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 140,
+                  height: 140,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blueAccent,
+                          padding: const EdgeInsets.all(10)
+                      ),
+
+                      child: Column(
+                          children: [
+                            Container(
+                              child: const Text('Olsen Field'),
+                            ),
+                            const SizedBox(height: 5),
+                            Container(
+                              child: const Text('1.1 mi away', style: TextStyle(fontSize: 10),),
+                            ),
+                            const SizedBox(height: 10),
+                            const Image(image: AssetImage('images/olsen.jpg'))
+                          ]
+                      ),
+                      onPressed: (
+                          ) {
+                        // Navigator.of(context).pushReplacementNamed('/Home');
+                        //Navigator.of(context).pushReplacementNamed('/Hotspots');
+                      }),
+                ),
+                const SizedBox(width: 50),
+                SizedBox(
+                  width: 140,
+                  height: 140,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blueAccent,
+                          padding: const EdgeInsets.all(10)
+                      ),
+
+                      child: Column(
+                          children: const [
+                            Text('Star Cinema'),
+                            //SizedBox(height: 5),
+                            Text('1.2 mi away', style: TextStyle(fontSize: 10)),
+                            SizedBox(height: 10),
+                            Image(image: AssetImage('images/starscinema.jpg'))
+                          ]
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pushReplacementNamed('/Hotspots');
+                      }),
+                ),
+
+              ],
+            ),
+          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.center,
+          //     children: [
+          //       SizedBox(
+          //         width: 140,
+          //         height: 140,
+          //         child: ElevatedButton(
+          //             style: ElevatedButton.styleFrom(
+          //                 backgroundColor: Colors.blueAccent,
+          //                 padding: const EdgeInsets.all(10)
+          //             ),
+          //
+          //             child: Column(
+          //                 children: [
+          //                   Container(
+          //                     child: const Text('Kyle Field'),
+          //                   ),
+          //                   const SizedBox(height: 5),
+          //                   Container(
+          //                     child: const Text('0.5 mi away', style: TextStyle(fontSize: 10),),
+          //                   ),
+          //                   const SizedBox(height: 10),
+          //                   const Image(image: AssetImage('images/kylefield.png'))
+          //                 ]
+          //             ),
+          //             onPressed: (
+          //                 ) {
+          //               // Navigator.of(context).pushReplacementNamed('/Home');
+          //               //Navigator.of(context).pushReplacementNamed('/Hotspots');
+          //             }),
+          //       ),
+          //       const SizedBox(width: 50),
+          //       SizedBox(
+          //         width: 140,
+          //         height: 140,
+          //         child: ElevatedButton(
+          //             style: ElevatedButton.styleFrom(
+          //                 backgroundColor: Colors.blueAccent,
+          //                 padding: const EdgeInsets.all(10)
+          //             ),
+          //
+          //             child: Column(
+          //                 children: const [
+          //                   Text('Bonfire Memorial'),
+          //                   //SizedBox(height: 5),
+          //                   Text('1.2 mi away', style: TextStyle(fontSize: 10)),
+          //                   SizedBox(height: 10),
+          //                   Image(image: AssetImage('images/bonfirememorial.jpg'))
+          //                 ]
+          //             ),
+          //             onPressed: () {
+          //               Navigator.of(context).pushReplacementNamed('/Hotspots');
+          //             }),
+          //       ),
+          //
+          //     ],
+          //   ),
+          // ),
         ], //children of initial column
       ),
 
@@ -158,7 +322,7 @@ class CustomSearchDelegate extends SearchDelegate {
         onPressed: () {
           query = '';
         },
-        icon: Icon(Icons.clear),
+        icon: const Icon(Icons.clear),
       ),
     ];
   }
@@ -170,7 +334,7 @@ class CustomSearchDelegate extends SearchDelegate {
       onPressed: () {
         close(context, null);
       },
-      icon: Icon(Icons.arrow_back),
+      icon: const Icon(Icons.arrow_back),
     );
   }
 

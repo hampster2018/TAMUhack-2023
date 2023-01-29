@@ -69,7 +69,10 @@ flutter:
     - images/map.png
     - images/kylefield.png
     - images/bonfirememorial.jpg
-
+    - images/gwbush.jpg
+    - images/librarygardens.jpg
+    - images/olsen.jpg
+    - images/starscinema.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

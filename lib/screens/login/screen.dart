@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tamuhack/globals/app_colors.dart';
-import 'package:tamuhack/screens/hotspots/nearby_places_screen.dart';
-import 'package:tamuhack/screens/hotspots/screen.dart';
+// import 'package:tamuhack/screens/hotspots/nearby_places_screen.dart';
+// import 'package:tamuhack/screens/hotspots/screen.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -249,7 +249,7 @@ class _IndividualLoginInfoState extends State<IndividualLoginInfo> {
                       style: TextStyle(color: Colors.white)),
                   onPressed: () {
                     //async {
-                    Navigator.of(context).pushReplacementNamed('/NearByPlacesScreen');
+                    Navigator.of(context).pushReplacementNamed('/Hotspots');
                     /*dynamic result = await _auth.signInWithEmailAndPassword(controllerUserSignIn.text, controllerPassSignIn.text);
                     if(result == null){
                       print("error: user not found");
