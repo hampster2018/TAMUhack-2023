@@ -213,67 +213,7 @@ class _GiveRideState extends State<GiveRide> {
                     child: ElevatedButton(
                       onPressed: _showTimeSelect,
                       child: const Text('Select Your Time Rides'),
-                    ), /*DropdownButtonFormField(
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          //<-- SEE HERE
-                          borderSide: BorderSide(color: Colors.black, width: 2),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          //<-- SEE HERE
-                          borderSide: BorderSide(color: Colors.black, width: 2),
-                        ),
-                        filled: true,
-                        fillColor: AppColors.red,
-                      ),
-                      dropdownColor: AppColors.red,
-                      isExpanded: true,
-                      value: timevalue,
-                      items: const [
-                        DropdownMenuItem<String>(
-                          child: Text(
-                            'Choose a time slot',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          value: 'Choose a time slot',
-                        ),
-                        DropdownMenuItem<String>(
-                          child: Text(
-                            '< 5 min',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          value: 'Very Short',
-                        ),
-                        DropdownMenuItem<String>(
-                          child: Text(
-                            '5-10 min',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          value: 'Short',
-                        ),
-                        DropdownMenuItem<String>(
-                          child: Text(
-                            '10-15 min',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          value: 'Medium',
-                        ),
-                        DropdownMenuItem<String>(
-                          child: Text(
-                            '> 15 min',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          value: 'Long ass drive',
-                        ),
-                      ],
-                      onChanged: (String? selectedValue) {
-                        if (selectedValue is String) {
-                          setState(() {
-                            timevalue = selectedValue;
-                          });
-                        }
-                      },
-                    ),*/
+                    ),
                   ),
                   Wrap(
                     children: _selectedTimes
