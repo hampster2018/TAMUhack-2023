@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:tamuhack/screens/models/nearby_response.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:flutter/material.dart';
+import 'package:google_maps_webservice/places.dart';
+
+import 'get_references.dart';
+//import 'package:flutter_google_places/flutter_google_places.dart';
 
 class NearByPlacesScreen extends StatefulWidget {
   const NearByPlacesScreen({Key? key}) : super(key: key);
@@ -15,11 +17,14 @@ class NearByPlacesScreen extends StatefulWidget {
 class _NearByPlacesScreenState extends State<NearByPlacesScreen> {
 
   List<Results> responses = [];
+  List<Image> images = [];
 
   static const apiKey = "AIzaSyDTluOtorcQ8tdQ7t3MV6YUtt7yKbuQKLw";
-  static const radius = "30"; //radius of nearby places in meters ~ 20 miles
+  static const radius = "30000"; //radius of nearby places in meters ~ 20 miles
   static const latitude = 30.611560198615287;
   static const longitude = -96.341671918995;
+  String type = "";
+  //&type=$type
 
   Future<List<Results>> getNearbyPlaces() async {
     var url = Uri.parse('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=$latitude,$longitude&radius=$radius&key=$apiKey');
@@ -36,15 +41,35 @@ class _NearByPlacesScreenState extends State<NearByPlacesScreen> {
     return results;
   }
 
+  List<String> getPictureIDs (List<Results> results) {
+    List<String> ids = [];
+    for (Results result in results) {
+      ids.add(result.placeId ?? "");
+    }
+    return ids;
+  }
+
   @override
   initState() {
     super.initState();
 
     getNearbyPlaces().then((result) => {
-      setState(() {
-        responses = result;
+      responses = result,
+      getReferences(getPictureIDs(responses), apiKey).then((result) =>
+      {
+        setState(() {
+          images = result;
+        })
       })
     });
+  }
+  getImage() async{
+    final photoReference = await getReference(placeId);
+    final baseUrl = "https://maps.googleapis.com/maps/api/place/photo";
+    final maxWidth = "400";
+    final maxHeight = "200";
+    final url = "$baseUrl?maxwidth=$maxWidth&maxheight=$maxHeight&photoreference=$photoReference&key=$apiKey";
+    return Image.network(url);
   }
 
   @override
@@ -57,9 +82,7 @@ class _NearByPlacesScreenState extends State<NearByPlacesScreen> {
         pictureIDs.add(response.placeId ?? "");
       }
 
-
-
-
+      //List<Image> photos = await getReferences(pictureIDs, apiKey);
       list =
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -70,9 +93,10 @@ class _NearByPlacesScreenState extends State<NearByPlacesScreen> {
                 decoration: BoxDecoration(border: Border.all(color: Colors.black),
                 borderRadius: BorderRadius.circular(10)),
                 child: Column (
-                  children: [
+                  children:[
+                    getImage(images),
                     Text("Name: ${response.name!}"),
-                    Text("Place ID: ${response.placeId!}"),
+                    //Text("Place ID: ${response.placeId!}"),
                   ])
                 ),
               ).toList(),
@@ -95,6 +119,20 @@ class _NearByPlacesScreenState extends State<NearByPlacesScreen> {
     )
   );
   }
+
+  //display pictures using picIds list
+  //create list of photo builders
+
+  //for next loop take photo builders list and returns
+  // Future<List<Results>> loadFutures(List<String> pictureIDs)  {
+  //   List<String> fields;
+  //   for (var id in pictureIDs) {
+  //     //List<Place.Field.> fields = Collections.singletonList(Place.Field.PHOTO_METADATAS);
+  //    //fields.add()
+  //    final List<Place.Field> fields = Collections.singletonList(Place.Field.PHOTO_METADATAS);
+  //   }
+  //
+  // }
 
   Widget nearbyPlacesWidget(Results results){
     return Container(
