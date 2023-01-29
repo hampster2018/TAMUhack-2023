@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
                           //Navigator.of(context).pushReplacementNamed('/Hotspots');
                         }),
                   ),
-                  SizedBox(width: 30),
+                  SizedBox(width: 10),
                   SizedBox(
                     width: 100,
                     height: 100,

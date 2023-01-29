@@ -1,11 +1,16 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
-void main() {
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:tamuhack/screens/hotspots/nearby_places_screen.dart';
+
+/*void main() {
   runApp(const MyApp());
-}
+}*/
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -54,8 +59,8 @@ class _GFGState extends State<GFG> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: 150,
-                  height: 150,
+                  width: 100,
+                  height: 100,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blueAccent,
@@ -79,14 +84,16 @@ class _GFGState extends State<GFG> {
 
 
             ),
-                      onPressed: () {
+                      onPressed: (
+                          ) {
+                        Navigator.of(context).pushReplacementNamed('/Home');
                         //Navigator.of(context).pushReplacementNamed('/Hotspots');
                       }),
                 ),
-                SizedBox(width: 40),
+                SizedBox(width: 20),
                 SizedBox(
-                  width: 150,
-                  height: 150,
+                  width: 100,
+                  height: 100,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blueAccent,
@@ -113,6 +120,14 @@ class _GFGState extends State<GFG> {
                       onPressed: () {
                         //Navigator.of(context).pushReplacementNamed('/Hotspots');
                       }),
+                ),
+                CupertinoButton(
+                  child: const Text("Nearby Places"),
+                  onPressed: (){
+                  // Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+                  //   return const NearByPlacesScreen();
+                  Navigator.of(context).pushReplacementNamed('/Home');
+                  },
                 ),
               ],
             ),
