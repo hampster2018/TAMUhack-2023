@@ -26,6 +26,8 @@ class _GiveRideState extends State<GiveRide> {
   var dayVisibility = false;
   var timeVisibility = false;
   var resultVisibility = false;
+  var onlyFriends = false;
+  var sameGender = false;
 
   final destination = TextEditingController();
 
@@ -108,7 +110,7 @@ class _GiveRideState extends State<GiveRide> {
               Column(
                 children: [
                   const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10),
+                    padding: EdgeInsets.symmetric(vertical: 5),
                   ),
                   SizedBox(
                     width: sWidth / 1.2,
@@ -120,7 +122,7 @@ class _GiveRideState extends State<GiveRide> {
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10),
+                    padding: EdgeInsets.symmetric(vertical: 5),
                   ),
                   SizedBox(
                     width: sWidth / 1.2,
@@ -204,7 +206,7 @@ class _GiveRideState extends State<GiveRide> {
                         .toList(),
                   ),
                   const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10),
+                    padding: EdgeInsets.symmetric(vertical: 5),
                   ),
                   SizedBox(
                     width: sWidth / 1.2,
@@ -281,7 +283,48 @@ class _GiveRideState extends State<GiveRide> {
                         .toList(),
                   ),
                   const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10),
+                    padding: EdgeInsets.symmetric(vertical: 5),
+                  ),
+                  SizedBox(
+                    width: sWidth / 1.2,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        SizedBox(
+                            width: sWidth / 2.6,
+                            child: CheckboxListTile(
+                                title: Text("Friends Only"),
+                                activeColor: AppColors.blue,
+                                checkColor: Colors.white,
+                                selectedTileColor: Colors.blue,
+                                selected: onlyFriends,
+                                value: onlyFriends,
+                                onChanged: (value) {
+                                  setState(() {
+                                    onlyFriends = value!;
+                                  });
+                                  //if (value != null) sameGender = value;
+                                })),
+                        SizedBox(
+                            width: sWidth / 2.6,
+                            child: CheckboxListTile(
+                                title: Text("Same Gender"),
+                                activeColor: AppColors.blue,
+                                checkColor: Colors.white,
+                                selectedTileColor: Colors.green,
+                                selected: sameGender,
+                                value: sameGender,
+                                onChanged: (value) {
+                                  setState(() {
+                                    sameGender = value!;
+                                  });
+                                  //if (value != null) sameGender = value;
+                                })),
+                      ],
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 5),
                   ),
                   CupertinoButton(
                       color: AppColors.blue,
@@ -327,7 +370,7 @@ class _GiveRideState extends State<GiveRide> {
                         });
                       }),
                   const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10),
+                    padding: EdgeInsets.symmetric(vertical: 5),
                   ),
                   Visibility(
                     visible: dayVisibility,
@@ -363,7 +406,12 @@ class _GiveRideState extends State<GiveRide> {
                                     color: Colors.blue,
                                     width: sWidth / 2.4,
                                     height: 100,
-                                    child: Text(word)))
+                                    child: Center(
+                                        child: Text(word,
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                            ),
+                                            textAlign: TextAlign.center))))
                                 .toList(),
                           ),
                         )),
