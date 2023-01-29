@@ -24,13 +24,13 @@ class LoginPage extends StatelessWidget {
           padding: const EdgeInsets.only(left: 43.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 'Friendscape',
                 style: TextStyle(
                     color: AppColors.red,
-                    fontSize: 50,
+                    fontSize: 40,
                     fontWeight: FontWeight.bold),
               ),
               //const Divider(),
@@ -38,8 +38,8 @@ class LoginPage extends StatelessWidget {
               Container(
                 child: const Image(
                     image: AssetImage('images/logo.png'),
-                    width: 120,
-                    height: 120),
+                    width: 110,
+                    height: 110),
               ),
               //const Divider(),
               Container(
