@@ -49,8 +49,8 @@ class MyApp extends StatelessWidget {
         routes: {
           // Login Route for the User
           "/": (context) => const LoginPage(),
-          "/Home": (context) => const HomePage(),
-          "/FindFriend": (context) => FindFriendPage(),
+          //"/Home": (context) => const HomePage(),
+          //"/FindFriend": (context) => FindFriendPage(),
           "/Profile": (context) => const ProfilePage(),
           '/Friend': (context) => const FindAFriend(),
           "/GiveRide": (context) => const GiveRide(),
